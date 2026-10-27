@@ -115,13 +115,23 @@ def fetch_live_ga4(data: dict, credentials_input: str):
 
     for ep in data.get("endpoints", []):
         ep_id = ep["id"]
-        # Determine filter keyword for GA4 path
+        # Determine filter pattern for GA4 path
+        filter_path = ep.get("analytics", {}).get("ga4", {}).get("filter_path", "")
         if "mkdocs-life" in ep_id:
-            filter_kw = "mkdocs-life"
+            filter_val = "mkdocs-life"
+            match_type = "CONTAINS"
         elif "mkdocs-investment" in ep_id:
-            filter_kw = "mkdocs-investment"
+            filter_val = "mkdocs-investment"
+            match_type = "CONTAINS"
+        elif "google-alert-manager" in ep_id or "GoogleAlertManager" in ep_id:
+            filter_val = "(?i)google.*alert.*manager"
+            match_type = "PARTIAL_REGEXP"
+        elif filter_path:
+            filter_val = filter_path.strip("/")
+            match_type = "CONTAINS"
         else:
-            filter_kw = ep_id
+            filter_val = ep_id
+            match_type = "CONTAINS"
 
         # Query lifetime views
         p_lifetime = {
@@ -131,8 +141,9 @@ def fetch_live_ga4(data: dict, credentials_input: str):
                 "filter": {
                     "fieldName": "pagePath",
                     "stringFilter": {
-                        "matchType": "CONTAINS",
-                        "value": filter_kw
+                        "matchType": match_type,
+                        "value": filter_val,
+                        "caseSensitive": False
                     }
                 }
             }
@@ -146,8 +157,9 @@ def fetch_live_ga4(data: dict, credentials_input: str):
                 "filter": {
                     "fieldName": "pagePath",
                     "stringFilter": {
-                        "matchType": "CONTAINS",
-                        "value": filter_kw
+                        "matchType": match_type,
+                        "value": filter_val,
+                        "caseSensitive": False
                     }
                 }
             }
