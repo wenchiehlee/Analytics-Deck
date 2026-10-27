@@ -48,16 +48,18 @@ def update_offline_snapshot(data: dict):
     data["metadata"]["last_sync_local"] = f"{now_tpe} (4 renewals/day)"
 
     for ep in data.get("endpoints", []):
-        ep_id = ep["id"]
         analytics = ep.get("analytics", {})
         analytics["last_sync"] = now_utc
         ep["analytics"] = analytics
 
     with open(ENDPOINTS_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"[✓] Successfully refreshed telemetry timestamps across {len(data['endpoints'])} endpoints.")
+    print(f"[✓] Refreshed telemetry timestamps across {len(data['endpoints'])} endpoints.")
     
     # Auto rebuild index.html
+    rebuild_pages()
+
+def rebuild_pages():
     try:
         if str(BASE_DIR) not in sys.path:
             sys.path.insert(0, str(BASE_DIR))
@@ -87,7 +89,7 @@ def get_service_account_token(creds_input: str) -> str:
     return creds.token
 
 def fetch_live_ga4(data: dict, credentials_input: str):
-    """Query live GA4 Data API via REST."""
+    """Query live GA4 Data API via REST for each endpoint."""
     print("[*] Authenticating with Google Analytics Data API via Service Account...")
     try:
         token = get_service_account_token(credentials_input)
@@ -103,85 +105,84 @@ def fetch_live_ga4(data: dict, credentials_input: str):
     data["metadata"]["last_sync_local"] = f"{now_tpe} (4 renewals/day)"
 
     property_id = data["endpoints"][0]["analytics"]["ga4"].get("property_id", MASTER_PROPERTY_ID)
-
-    # First: Query all page paths at once for lifetime pageviews
     url = f"https://analyticsdata.googleapis.com/v1beta/properties/{property_id}:runReport"
-    
-    lifetime_payload = {
-        "dateRanges": [{"startDate": "2020-01-01", "endDate": "today"}],
-        "metrics": [{"name": "screenPageViews"}],
-        "dimensions": [{"name": "pagePath"}]
-    }
-
-    active_payload = {
-        "dateRanges": [{"startDate": "30daysAgo", "endDate": "today"}],
-        "metrics": [{"name": "activeUsers"}],
-        "dimensions": [{"name": "pagePath"}]
-    }
-
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
     }
 
-    try:
-        req_views = urllib.request.Request(url, data=json.dumps(lifetime_payload).encode("utf-8"), headers=headers)
-        res_views = json.loads(urllib.request.urlopen(req_views).read().decode("utf-8"))
-        views_rows = res_views.get("rows", [])
-        print(f"[*] GA4 Report (Lifetime): Retrieved {len(views_rows)} page paths.")
+    print(f"[*] Querying GA4 Property {property_id} for {len(data['endpoints'])} endpoints...")
 
-        req_active = urllib.request.Request(url, data=json.dumps(active_payload).encode("utf-8"), headers=headers)
-        res_active = json.loads(urllib.request.urlopen(req_active).read().decode("utf-8"))
-        active_rows = res_active.get("rows", [])
-        print(f"[*] GA4 Report (30-Day Active): Retrieved {len(active_rows)} page paths.")
+    for ep in data.get("endpoints", []):
+        ep_id = ep["id"]
+        # Determine filter keyword for GA4 path
+        if "mkdocs-life" in ep_id:
+            filter_kw = "mkdocs-life"
+        elif "mkdocs-investment" in ep_id:
+            filter_kw = "mkdocs-investment"
+        else:
+            filter_kw = ep_id
 
-        # Map metrics to endpoints by filter_path
-        for ep in data.get("endpoints", []):
-            ep_id = ep["id"]
-            filter_path = ep["analytics"]["ga4"].get("filter_path", f"/{ep_id}/").lower()
-            
-            # Sum up matching page views
-            matching_views = 0
-            for r in views_rows:
-                path = r["dimensionValues"][0]["value"].lower()
-                if filter_path in path:
-                    matching_views += int(r["metricValues"][0]["value"])
+        # Query lifetime views
+        p_lifetime = {
+            "dateRanges": [{"startDate": "2020-01-01", "endDate": "today"}],
+            "metrics": [{"name": "screenPageViews"}],
+            "dimensionFilter": {
+                "filter": {
+                    "fieldName": "pagePath",
+                    "stringFilter": {
+                        "matchType": "CONTAINS",
+                        "value": filter_kw
+                    }
+                }
+            }
+        }
 
-            matching_users = 0
-            for r in active_rows:
-                path = r["dimensionValues"][0]["value"].lower()
-                if filter_path in path:
-                    matching_users += int(r["metricValues"][0]["value"])
+        # Query 30-day active users
+        p_30d = {
+            "dateRanges": [{"startDate": "30daysAgo", "endDate": "today"}],
+            "metrics": [{"name": "activeUsers"}],
+            "dimensionFilter": {
+                "filter": {
+                    "fieldName": "pagePath",
+                    "stringFilter": {
+                        "matchType": "CONTAINS",
+                        "value": filter_kw
+                    }
+                }
+            }
+        }
 
-            if matching_views > 0:
-                ep["analytics"]["views_total"] = matching_views
-            ep["analytics"]["active_users_30d"] = f"{matching_users:,}" if matching_users > 0 else "0"
+        try:
+            req_l = urllib.request.Request(url, data=json.dumps(p_lifetime).encode(), headers=headers)
+            res_l = json.loads(urllib.request.urlopen(req_l).read().decode())
+            views = int(res_l["rows"][0]["metricValues"][0]["value"]) if res_l.get("rows") else 0
+
+            req_a = urllib.request.Request(url, data=json.dumps(p_30d).encode(), headers=headers)
+            res_a = json.loads(urllib.request.urlopen(req_a).read().decode())
+            active_users = int(res_a["rows"][0]["metricValues"][0]["value"]) if res_a.get("rows") else 0
+
+            if views > 0:
+                ep["analytics"]["views_total"] = views
+                ep["analytics"]["active_users_30d"] = f"{active_users:,}"
+                print(f"    [✓] {ep_id:<22} -> Views: {views:>6,} | 30D Active: {active_users:>5,}")
+            else:
+                ep["analytics"]["views_total"] = None
+                ep["analytics"]["active_users_30d"] = "---"
+                print(f"    [-] {ep_id:<22} -> No GA4 records for Property {property_id} (shows ---)")
+
             ep["analytics"]["last_sync"] = now_utc
 
-            print(f"    [✓] {ep_id} (path: {filter_path}) -> Views: {ep['analytics'].get('views_total', '---')}, 30D Active: {ep['analytics'].get('active_users_30d', '---')}")
-
-    except urllib.error.HTTPError as err:
-        err_msg = err.read().decode("utf-8")
-        print(f"[!] GA4 API Query Failed (HTTP {err.code}): {err_msg}")
-        update_offline_snapshot(data)
-        return
-    except Exception as e:
-        print(f"[!] Error querying GA4: {e}")
-        update_offline_snapshot(data)
-        return
+        except Exception as err:
+            print(f"    [!] Error querying {ep_id}: {err}")
+            ep["analytics"]["views_total"] = None
+            ep["analytics"]["active_users_30d"] = "---"
 
     with open(ENDPOINTS_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print("[🎉] Live GA4 telemetry sync completed successfully.")
+    print("\n[🎉] Live GA4 telemetry sync completed successfully!")
 
-    # Auto rebuild index.html
-    try:
-        if str(BASE_DIR) not in sys.path:
-            sys.path.insert(0, str(BASE_DIR))
-        from scripts.build_page import build_index_html
-        build_index_html()
-    except Exception as e:
-        print(f"[!] Warning building index.html: {e}")
+    rebuild_pages()
 
 def main():
     load_env_file()
