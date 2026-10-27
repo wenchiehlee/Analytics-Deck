@@ -238,10 +238,10 @@ def merge_with_existing(parsed_endpoints):
                 "filter_path": f"/{ep_id}/"
             },
             "amplitude": {
-                "enabled": True if category == "saas" else False,
-                "status": "active" if category == "saas" else "planned",
+                "enabled": False,
+                "status": "planned",
                 "project_name": item["project"].split(" ")[0],
-                "dashboard_url": f"https://analytics.amplitude.com/share/{ep_id}" if category == "saas" else ""
+                "dashboard_url": ""
             },
             "last_sync": "2026-10-27 12:00:00"
         })

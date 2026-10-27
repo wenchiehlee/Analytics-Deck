@@ -72,10 +72,10 @@
           "filter_path": "/GoogleAlertManager/"
         },
         "amplitude": {
-          "enabled": true,
-          "status": "active",
+          "enabled": false,
+          "status": "planned",
           "project_name": "GoogleAlertManager",
-          "dashboard_url": "https://analytics.amplitude.com/share/google-alert-manager"
+          "dashboard_url": ""
         },
         "last_sync": "2026-10-27 13:29:32 UTC"
       }
@@ -107,10 +107,10 @@
           "filter_path": "/YoutubeAudio.Fetch/"
         },
         "amplitude": {
-          "enabled": true,
-          "status": "active",
+          "enabled": false,
+          "status": "planned",
           "project_name": "YoutubeAudio.Fetch",
-          "dashboard_url": "https://analytics.amplitude.com/share/youtube-audio-fetch"
+          "dashboard_url": ""
         },
         "last_sync": "2026-10-27 13:29:32 UTC"
       }
@@ -422,10 +422,10 @@
           "filter_path": "/Synology-Photo-Tagger/"
         },
         "amplitude": {
-          "enabled": true,
-          "status": "active",
+          "enabled": false,
+          "status": "planned",
           "project_name": "Synology-Photo-Tagger",
-          "dashboard_url": "https://analytics.amplitude.com/share/synology-photo-tagger"
+          "dashboard_url": ""
         },
         "last_sync": "2026-10-27 13:29:32 UTC"
       }
