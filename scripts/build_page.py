@@ -48,7 +48,7 @@ def generate_card_html(ep: dict) -> str:
     amp_enabled = amp.get("enabled", False)
     amp_status = amp.get("status", "planned")
     amp_url = amp.get("dashboard_url", "#")
-    amp_label = "Amplitude events" if amp_enabled else "Amplitude (規劃中)"
+    amp_label = "Amplitude" if amp_enabled else "Amplitude (規劃中)"
 
     symbol_id = ep.get("symbol_id", "")
     inline_svg = ep.get("inline_svg_html", "")
@@ -641,36 +641,55 @@ def build_index_html():
     /* Telemetry Action Buttons */
     .telemetry-actions {{
       display: flex;
-      gap: 8px;
+      gap: 6px;
+      width: 100%;
     }}
 
     .telemetry-btn {{
       flex: 1;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      padding: 7px 10px;
-      border-radius: 8px;
-      font-size: 0.74rem;
+      gap: 4px;
+      padding: 6px 4px;
+      border-radius: 6px;
+      font-size: 0.65rem;
       font-weight: 600;
+      letter-spacing: -0.01em;
       text-decoration: none;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+    }}
+
+    .telemetry-btn span {{
+      overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
     }}
 
     .btn-dot-icon {{
       flex-shrink: 0;
+      width: 5px;
+      height: 5px;
     }}
 
     .btn-arrow {{
-      font-size: 0.75rem;
+      font-size: 0.62rem;
       opacity: 0.8;
+      flex-shrink: 0;
       transition: transform 0.15s ease;
     }}
 
     .telemetry-btn:hover .btn-arrow {{
       transform: translate(1px, -1px);
+    }}
+
+    @media (max-width: 320px) {{
+      .telemetry-actions {{
+        flex-direction: column;
+      }}
     }}
 
     /* Google Analytics Button (Crisp Emerald Green) */

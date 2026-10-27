@@ -493,36 +493,55 @@
     /* Telemetry Action Buttons */
     .telemetry-actions {
       display: flex;
-      gap: 8px;
+      gap: 6px;
+      width: 100%;
     }
 
     .telemetry-btn {
       flex: 1;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      padding: 7px 10px;
-      border-radius: 8px;
-      font-size: 0.74rem;
+      gap: 4px;
+      padding: 6px 4px;
+      border-radius: 6px;
+      font-size: 0.65rem;
       font-weight: 600;
+      letter-spacing: -0.01em;
       text-decoration: none;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .telemetry-btn span {
+      overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
     }
 
     .btn-dot-icon {
       flex-shrink: 0;
+      width: 5px;
+      height: 5px;
     }
 
     .btn-arrow {
-      font-size: 0.75rem;
+      font-size: 0.62rem;
       opacity: 0.8;
+      flex-shrink: 0;
       transition: transform 0.15s ease;
     }
 
     .telemetry-btn:hover .btn-arrow {
       transform: translate(1px, -1px);
+    }
+
+    @media (max-width: 320px) {
+      .telemetry-actions {
+        flex-direction: column;
+      }
     }
 
     /* Google Analytics Button (Crisp Emerald Green) */
@@ -819,7 +838,7 @@
 
           <a href="https://analytics.amplitude.com/share/google-alert-manager" class="telemetry-btn btn-amplitude" target="_blank" rel="noopener noreferrer" title="開啟 Amplitude 自訂事件儀表板 ↗">
             <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
-            <span>Amplitude events</span>
+            <span>Amplitude</span>
             <span class="btn-arrow">↗</span></a>
         </div>
       </div>
@@ -872,7 +891,7 @@
 
           <a href="https://analytics.amplitude.com/share/youtube-audio-fetch" class="telemetry-btn btn-amplitude" target="_blank" rel="noopener noreferrer" title="開啟 Amplitude 自訂事件儀表板 ↗">
             <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
-            <span>Amplitude events</span>
+            <span>Amplitude</span>
             <span class="btn-arrow">↗</span></a>
         </div>
       </div>
@@ -1349,7 +1368,7 @@
 
           <a href="https://analytics.amplitude.com/share/synology-photo-tagger" class="telemetry-btn btn-amplitude" target="_blank" rel="noopener noreferrer" title="開啟 Amplitude 自訂事件儀表板 ↗">
             <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
-            <span>Amplitude events</span>
+            <span>Amplitude</span>
             <span class="btn-arrow">↗</span></a>
         </div>
       </div>
