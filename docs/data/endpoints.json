@@ -1,0 +1,469 @@
+{
+  "metadata": {
+    "title": "Analytics-Deck Endpoints Telemetry Registry",
+    "source": "UX-Deck (Settled Geometric Mascots)",
+    "sync_frequency": "4 renewals per day (every 6 hours)",
+    "cron_schedule": "0 */6 * * *",
+    "last_deck_sync": "2026-10-27 12:00:00",
+    "total_endpoints": 13,
+    "last_sync": "2026-10-27 05:10:07 UTC",
+    "last_sync_local": "2026-10-27 13:10 (4 renewals/day)"
+  },
+  "endpoints": [
+    {
+      "id": "mkdocs-life",
+      "order": 1,
+      "name": "幾何林鹿 🦌",
+      "project": "mkdocs-life (生活日誌)",
+      "card_class": "card-deer",
+      "lucide_wrapper_class": "wrapper-deer",
+      "showcase_url": "./showcases.html#mkdocs-life",
+      "live_url": "https://wenchiehlee.github.io/mkdocs-life/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-deer.svg",
+      "emblem_alt": "幾何林鹿 Modern Emblem",
+      "symbol_id": "icon-deer-life",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。",
+      "analytics": {
+        "views_total": 20595,
+        "active_users_30d": "1.2k",
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/mkdocs-life/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "mkdocs-life",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "google-alert-manager",
+      "order": 2,
+      "name": "破曉警報鳥 🐦",
+      "project": "GoogleAlertManager (SaaS)",
+      "card_class": "card-falcon",
+      "lucide_wrapper_class": "wrapper-falcon",
+      "showcase_url": "./showcases.html#google-alert-manager",
+      "live_url": "https://wenchiehlee-money.github.io/GoogleAlertManager/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-falcon.svg",
+      "emblem_alt": "破曉警報鳥 Modern Emblem",
+      "symbol_id": "icon-falcon-radar",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以破曉知更旭日圓盤作為系統門面；<strong>微觀</strong>以圓滾高翹尾飛鳥作為情報雷達與通報 Chip 線性標誌。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "saas",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/google-alert-manager/"
+        },
+        "amplitude": {
+          "enabled": true,
+          "status": "active",
+          "project_name": "GoogleAlertManager",
+          "dashboard_url": "https://analytics.amplitude.com/share/google-alert-manager"
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "youtube-audio-fetch",
+      "order": 3,
+      "name": "聲波座頭鯨 🐋",
+      "project": "YoutubeAudio.Fetch (影音 Podcast 萃取)",
+      "card_class": "card-whale",
+      "lucide_wrapper_class": "wrapper-whale",
+      "showcase_url": "./showcases.html#youtube-audio-fetch",
+      "live_url": "https://zhongzheng782.github.io/YoutubeAudio.Fetch/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-whale.svg",
+      "emblem_alt": "聲波座頭鯨 Modern Emblem",
+      "symbol_id": "icon-whale-sonic",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以深海翻騰水花躍鯨作為播放器封面；<strong>微觀</strong>以聲波噴泉座頭鯨作為聲學控制與音軌切換指示。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "saas",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/youtube-audio-fetch/"
+        },
+        "amplitude": {
+          "enabled": true,
+          "status": "active",
+          "project_name": "YoutubeAudio.Fetch",
+          "dashboard_url": "https://analytics.amplitude.com/share/youtube-audio-fetch"
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "docker-deck",
+      "order": 4,
+      "name": "貨櫃藍鯨 (Container Blue Whale) 🐳",
+      "project": "Docker-Deck (Docker 映像目錄)",
+      "card_class": "card-docker-whale",
+      "lucide_wrapper_class": "wrapper-docker-whale",
+      "showcase_url": "./showcases.html#docker-deck",
+      "live_url": "https://github.com/wenchiehlee/dockers",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-docker-whale.svg",
+      "emblem_alt": "Docker-Deck 貨櫃藍鯨 Modern Emblem",
+      "symbol_id": "icon-docker-whale",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以 Docker 藍鯨承載貨櫃作為品牌紋章；<strong>微觀</strong>以貨櫃藍鯨線性圖標連結映像探索與容器啟動。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/docker-deck/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "Docker-Deck",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "mkdocs-investment-bull",
+      "order": 5,
+      "name": "幾何狂牛 🐂",
+      "project": "mkdocs-investment (多頭攻堅)",
+      "card_class": "card-bull",
+      "lucide_wrapper_class": "wrapper-bull",
+      "showcase_url": "./showcases.html#mkdocs-investment",
+      "live_url": "https://wenchiehlee.github.io/mkdocs-investment/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-bull.svg",
+      "emblem_alt": "幾何狂牛 Modern Emblem",
+      "symbol_id": "icon-bull-fintech",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/mkdocs-investment-bull/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "mkdocs-investment",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "mkdocs-investment-bear",
+      "order": 6,
+      "name": "北歐守護熊 🐻",
+      "project": "mkdocs-investment (防禦避險)",
+      "card_class": "card-bear",
+      "lucide_wrapper_class": "wrapper-bear",
+      "showcase_url": "./showcases.html#mkdocs-investment",
+      "live_url": "https://wenchiehlee.github.io/mkdocs-investment/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-bear.svg",
+      "emblem_alt": "北歐守護熊 Modern Emblem",
+      "symbol_id": "icon-bear-defense",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/mkdocs-investment-bear/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "mkdocs-investment",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "homeassistant-tv",
+      "order": 7,
+      "name": "客廳小管家 柴柴 🐕",
+      "project": "HomeAssistant (Android TV)",
+      "card_class": "card-sentinel",
+      "lucide_wrapper_class": "wrapper-sentinel",
+      "showcase_url": "./showcases.html#homeassistant-tv",
+      "live_url": "https://github.com/wenchiehlee-ux/UX-Deck/tree/main/deploy/android-tv",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-dog.svg",
+      "emblem_alt": "客廳小管家 Modern Emblem",
+      "symbol_id": "icon-sentinel-tv",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以忠誠巡守柴柴作為電視客廳情境總覽封面；<strong>微觀</strong>以豎耳線性犬首標記智慧家庭通知與即時監控。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/homeassistant-tv/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "HomeAssistant",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "synology-nas",
+      "order": 8,
+      "name": "敏捷守護貓 🐱",
+      "project": "wenchiehlee.quickconnect.to (Synology NAS)",
+      "card_class": "card-pangolin",
+      "lucide_wrapper_class": "wrapper-pangolin",
+      "showcase_url": "./showcases.html#synology-nas",
+      "live_url": "https://wenchiehlee.synology.me",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-cat.svg",
+      "emblem_alt": "敏捷守護貓 Modern Emblem",
+      "symbol_id": "icon-pangolin-shield",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以幾何守護者之姿作為私有雲系統門面；<strong>微觀</strong>以三角耳幾何貓首標示 Docker 容器、Tailscale 與連線狀態。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/synology-nas/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee.quickconnect.to",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "tw-coverage",
+      "order": 9,
+      "name": "拍拍翅萌萌鴞 🦉",
+      "project": "My-TW-Coverage (台股個股覆蓋)",
+      "card_class": "card-owl",
+      "lucide_wrapper_class": "wrapper-owl",
+      "showcase_url": "./showcases.html#tw-coverage",
+      "live_url": "https://wenchiehlee-money.github.io/My-TW-Coverage/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-owl.svg",
+      "emblem_alt": "拍拍翅萌萌鴞 Modern Emblem",
+      "symbol_id": "icon-owl-coverage",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以治癒系萌鴞作為個股研報官方認證印鑑；<strong>微觀</strong>以大眼線性貓頭鷹作為研究評等與安全邊際欄位圖標。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "fintech",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/tw-coverage/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "My-TW-Coverage",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "investor-conference",
+      "order": 10,
+      "name": "領航雄鷹 🦅",
+      "project": "InvestorConference (法人說明會與 IR 庫)",
+      "card_class": "card-eagle",
+      "lucide_wrapper_class": "wrapper-eagle",
+      "showcase_url": "./showcases.html#investor-conference",
+      "live_url": "https://wenchiehlee-money.github.io/InvestorConference/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-eagle.svg",
+      "emblem_alt": "領航雄鷹 Modern Emblem",
+      "symbol_id": "icon-eagle-ir",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以展翅高飛的綠色領航雄鷹紋章作為法說會資料庫門面；<strong>微觀</strong>以銳利幾何鷹影作為重要事件與高階展望標籤。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "fintech",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/investor-conference/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "InvestorConference",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "vix",
+      "order": 11,
+      "name": "幾何黑天鵝 🦢",
+      "project": "VIX (全球波動率與黑天鵝雷達)",
+      "card_class": "card-swan",
+      "lucide_wrapper_class": "wrapper-swan",
+      "showcase_url": "./showcases.html#vix",
+      "live_url": "https://wenchiehlee-money.github.io/VIX/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-swan.svg",
+      "emblem_alt": "幾何黑天鵝 Modern Emblem",
+      "symbol_id": "icon-swan-vix",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以幾何黑天鵝極端風險徽章作為雷達封面；<strong>微觀</strong>以高對比曜石天鵝作為市場恐慌 30 閾值與壓力測試標記。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "fintech",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/vix/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "VIX",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "synology-photo-tagger",
+      "order": 12,
+      "name": "採集松鼠 🐿️",
+      "project": "Synology-Photo-Tagger (相片智慧標籤)",
+      "card_class": "card-squirrel",
+      "lucide_wrapper_class": "wrapper-squirrel",
+      "showcase_url": "./showcases.html#synology-photo-tagger",
+      "live_url": "https://zhongzheng782.github.io/Synology-Photo-Tagger/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-squirrel.svg",
+      "emblem_alt": "採集松鼠 Modern Emblem",
+      "symbol_id": "icon-squirrel-tagger",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>以抱握松果的靈巧松鼠作為相片資產徽章；<strong>微觀</strong>以大尾線性松鼠標記 AI 物件辨識、場景分類與 EXIF/XMP 智慧標籤入庫。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "saas",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/synology-photo-tagger/"
+        },
+        "amplitude": {
+          "enabled": true,
+          "status": "active",
+          "project_name": "Synology-Photo-Tagger",
+          "dashboard_url": "https://analytics.amplitude.com/share/synology-photo-tagger"
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    },
+    {
+      "id": "skill-deck",
+      "order": 13,
+      "name": "敏捷白兔 (Agile Rabbit) 🐇",
+      "project": "Skill-Deck (共享技能登錄庫)",
+      "card_class": "card-rabbit",
+      "lucide_wrapper_class": "wrapper-rabbit",
+      "showcase_url": "./showcases.html#skill-deck",
+      "live_url": "https://wenchiehlee.github.io/skills/",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit",
+      "emblem_alt": "敏捷白兔 Modern Emblem",
+      "symbol_id": "",
+      "inline_svg_html": "<svg aria-hidden=\"true\" class=\"ux-icon ux-icon-xl ux-icon-rabbit\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\">\n<path d=\"M13 16a3 3 0 0 1 2.24 5\"></path>\n<path d=\"M18 12h.01\"></path>\n<path d=\"M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3\"></path>\n<path d=\"M20 8.54V4a2 2 0 1 0-4 0v3\"></path>\n<path d=\"M7.612 12.524a3 3 0 1 0-1.6 4.3\"></path>\n</svg>",
+      "desc_html": "<strong>宏觀</strong>以跑酷凌空飛躍的敏捷白兔紋章呈現技能探索的品牌入口；<strong>微觀</strong>以跑酷疾速白兔線性圖標標示搜尋、分類與技能瀏覽功能。",
+      "analytics": {
+        "views_total": 1580,
+        "active_users_30d": "380",
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-SHARED-PORTAL",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/skill-deck/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "Skill-Deck",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-10-27 05:10:07 UTC"
+      }
+    }
+  ]
+}

@@ -49,6 +49,8 @@ def update_offline_snapshot(data: dict):
     
     # Auto rebuild index.html
     try:
+        if str(BASE_DIR) not in sys.path:
+            sys.path.insert(0, str(BASE_DIR))
         from scripts.build_page import build_index_html
         build_index_html()
     except Exception as e:
@@ -152,6 +154,8 @@ def fetch_live_ga4(data: dict, credentials_json: str):
 
     # Auto rebuild index.html
     try:
+        if str(BASE_DIR) not in sys.path:
+            sys.path.insert(0, str(BASE_DIR))
         from scripts.build_page import build_index_html
         build_index_html()
     except Exception as e:

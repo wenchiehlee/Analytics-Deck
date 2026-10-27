@@ -18,6 +18,8 @@ DATA_DIR = BASE_DIR / "data"
 ENDPOINTS_JSON = DATA_DIR / "endpoints.json"
 SYMBOLS_FILE = DATA_DIR / "svg_symbols.html"
 OUTPUT_HTML = BASE_DIR / "index.html"
+DOCS_DIR = BASE_DIR / "docs"
+DOCS_HTML = DOCS_DIR / "index.html"
 
 def generate_card_html(ep: dict) -> str:
     analytics = ep.get("analytics", {})
@@ -659,7 +661,17 @@ def build_index_html():
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
         f.write(template)
 
-    print(f"[✓] Successfully built {OUTPUT_HTML} ({len(template):,} bytes) with {len(endpoints)} cards.")
+    # Also build to docs/ for GitHub Pages deployment
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(DOCS_HTML, "w", encoding="utf-8") as f:
+        f.write(template)
+
+    # Sync docs/data/endpoints.json
+    (DOCS_DIR / "data").mkdir(parents=True, exist_ok=True)
+    import shutil
+    shutil.copy2(ENDPOINTS_JSON, DOCS_DIR / "data" / "endpoints.json")
+
+    print(f"[✓] Successfully built {OUTPUT_HTML} and {DOCS_HTML} ({len(template):,} bytes) with {len(endpoints)} cards.")
 
 if __name__ == "__main__":
     build_index_html()

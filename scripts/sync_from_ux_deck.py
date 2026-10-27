@@ -76,8 +76,15 @@ def sync_assets():
         src = UX_DECK_DIR / fav
         if src.exists():
             shutil.copy2(src, BASE_DIR / fav)
+            shutil.copy2(src, BASE_DIR / "docs" / fav)
 
-    print("[✓] Assets successfully synced.")
+    # Mirror tokens to docs/tokens for GitHub Pages
+    docs_tokens = BASE_DIR / "docs" / "tokens"
+    if docs_tokens.exists():
+        shutil.rmtree(docs_tokens)
+    shutil.copytree(TOKENS_DIR, docs_tokens)
+
+    print("[✓] Assets successfully synced to tokens/ and docs/tokens/.")
 
 def extract_symbols(soup: BeautifulSoup):
     """Extract SVG symbol tags defined in UX-Deck/index.html."""
@@ -245,6 +252,8 @@ def merge_with_existing(parsed_endpoints):
     
     # Auto rebuild index.html
     try:
+        if str(BASE_DIR) not in sys.path:
+            sys.path.insert(0, str(BASE_DIR))
         from scripts.build_page import build_index_html
         build_index_html()
     except Exception as e:
