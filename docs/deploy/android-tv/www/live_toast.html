@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Living Room Sentinel Frosted HUD</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: transparent !important;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    }
+
+    /* 60% Transparency Frosted HUD Card with 24px Rounded Corners */
+    .tv-hud-card {
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      background: rgba(15, 23, 42, 0.40); /* 60% transparency (#660f172a) */
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 24px; /* True Smooth Rounded Corners! */
+      border: 1.5px solid rgba(56, 189, 248, 0.45);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      animation: hudPulse 3s infinite ease-in-out;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Ambient Breathing Light Animation */
+    @keyframes hudPulse {
+      0%, 100% {
+        border-color: rgba(56, 189, 248, 0.35);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.2);
+      }
+      50% {
+        border-color: rgba(56, 189, 248, 0.8);
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.65), 0 0 28px rgba(56, 189, 248, 0.45);
+      }
+    }
+
+    /* Mascot / Icon Badge with Subtle Glow */
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .icon-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+      animation: iconFloat 3s infinite ease-in-out;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+
+    .sentinel-svg {
+      width: 40px;
+      height: 40px;
+      color: #38bdf8;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
+      animation: sentinelBreath 3s infinite ease-in-out;
+    }
+
+    @keyframes sentinelBreath {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.9)); }
+    }
+
+    /* Typography Optimized for 10-foot Viewing (3-4 Meters) */
+    .content-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hud-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #38bdf8;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hud-message {
+      font-size: 16px;
+      font-weight: 500;
+      color: #f1f5f9;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tv-hud-card" id="hudCard">
+    <div class="icon-wrap" id="iconWrap">
+      <!-- Default: Sentinel Dog Mascot -->
+      <svg class="sentinel-svg" id="sentinelSvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8.5 8.5c-.38 1.05-1.08 2.03-2.34 2.5-1.93.72-3.58-.3-3.66-1-.11-.99 1.18-6.53 4-7 1.92-.32 3.65.85 3.65 2.24A7.5 7.5 0 0 1 14 5.28c0-1.39 1.84-2.6 3.77-2.28 2.82.47 4.11 6.01 4 7-.08.7-1.73 1.72-3.66 1-1.26-.47-1.85-1.45-2.24-2.5" />
+        <path d="M4.42 11.25A13.15 13.15 0 0 0 4 14.56C4 18.73 7.58 21 12 21s8-2.27 8-6.44a11.7 11.7 0 0 0-.49-3.31" />
+        <path d="M8 14v.5" />
+        <path d="M16 14v.5" />
+        <path d="M11.25 16.25h1.5L12 17z" />
+      </svg>
+      <img id="customIcon" class="icon-img" style="display: none;" src="" alt="Icon" />
+    </div>
+
+    <div class="content-wrap">
+      <div class="hud-title" id="hudTitle">🐕 客廳守護犬 · 圓角毛玻璃</div>
+      <div class="hud-message" id="hudMessage">已成功解鎖 24px 圓角與呼吸燈 10-Foot HUD 🐾</div>
+    </div>
+  </div>
+
+  <script>
+    // Parse dynamic URL parameters for flexible HomeAssistant integration
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const msg = params.get('msg') || params.get('message');
+    const titleColor = params.get('titleColor') || params.get('color');
+    const iconUrl = params.get('icon');
+    const borderColor = params.get('border');
+
+    if (title) document.getElementById('hudTitle').textContent = title;
+    if (msg) document.getElementById('hudMessage').textContent = msg;
+    if (titleColor) {
+      document.getElementById('hudTitle').style.color = titleColor;
+      document.getElementById('sentinelSvg').style.color = titleColor;
+    }
+    if (borderColor) {
+      document.getElementById('hudCard').style.borderColor = borderColor;
+    }
+
+    if (iconUrl) {
+      const customIcon = document.getElementById('customIcon');
+      const sentinelSvg = document.getElementById('sentinelSvg');
+      customIcon.src = iconUrl;
+      customIcon.style.display = 'block';
+      sentinelSvg.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# ==============================================================================
+# Home Assistant Theme: TV Frosted HUD (10-Foot Living Room Display)
+# Path in HA: /config/themes/tv_frosted_hud.yaml
+# Enable via: configuration.yaml -> frontend: themes: !include_dir_merge_named themes
+# ==============================================================================
+
+tv_frosted_hud:
+  # Mode & Font
+  modes:
+    dark:
+      # Backgrounds & Cards
+      primary-background-color: "#0a0c12"
+      secondary-background-color: "rgba(18, 22, 34, 0.85)"
+      card-background-color: "rgba(22, 27, 46, 0.85)"
+      ha-card-background: "rgba(22, 27, 46, 0.85)"
+      ha-card-backdrop-filter: "blur(24px)"
+      ha-card-border-radius: "18px"
+      ha-card-border-width: "1.5px"
+      ha-card-border-color: "rgba(255, 255, 255, 0.12)"
+      ha-card-box-shadow: "0 14px 35px rgba(0, 0, 0, 0.55)"
+
+      # Typography (Scaled up for 3-4 meter living room viewing distance)
+      primary-text-color: "#ffffff"
+      secondary-text-color: "#94a3b8"
+      disabled-text-color: "#64748b"
+
+      # Focus Accents (Optimized for Android TV Remote D-pad navigation)
+      primary-color: "#38bdf8"
+      accent-color: "#38bdf8"
+      state-active-color: "#38bdf8"
+      state-icon-active-color: "#38bdf8"
+
+      # Semantic Status Colors
+      success-color: "#22c55e"
+      warning-color: "#f59e0b"
+      error-color: "#ef4444"
+      info-color: "#38bdf8"
+
+      # Sliders & Switches
+      switch-checked-button-color: "#38bdf8"
+      switch-checked-track-color: "rgba(56, 189, 248, 0.4)"
+      slider-color: "#38bdf8"
+      slider-bar-color: "rgba(255, 255, 255, 0.15)"
+
+      # D-pad TV Navigation Outline overrides
+      mdc-theme-primary: "#38bdf8"
+      mdc-theme-on-primary: "#0a0c12"

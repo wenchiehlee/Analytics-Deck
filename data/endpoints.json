@@ -6,8 +6,8 @@
     "cron_schedule": "0 */6 * * *",
     "last_deck_sync": "2026-10-27 12:00:00",
     "total_endpoints": 13,
-    "last_sync": "2026-10-27 13:12:13 UTC",
-    "last_sync_local": "2026-10-27 21:12 (4 renewals/day)"
+    "last_sync": "2026-10-27 13:29:32 UTC",
+    "last_sync_local": "2026-10-27 21:29 (4 renewals/day)"
   },
   "endpoints": [
     {
@@ -17,7 +17,7 @@
       "project": "mkdocs-life (生活日誌)",
       "card_class": "card-deer",
       "lucide_wrapper_class": "wrapper-deer",
-      "showcase_url": "./showcases.html#mkdocs-life",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#mkdocs-life",
       "live_url": "https://wenchiehlee.github.io/mkdocs-life/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-deer.svg",
       "emblem_alt": "幾何林鹿 Modern Emblem",
@@ -42,7 +42,7 @@
           "project_name": "mkdocs-life",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -52,7 +52,7 @@
       "project": "GoogleAlertManager (SaaS)",
       "card_class": "card-falcon",
       "lucide_wrapper_class": "wrapper-falcon",
-      "showcase_url": "./showcases.html#google-alert-manager",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#google-alert-manager",
       "live_url": "https://wenchiehlee-money.github.io/GoogleAlertManager/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-falcon.svg",
       "emblem_alt": "破曉警報鳥 Modern Emblem",
@@ -77,7 +77,7 @@
           "project_name": "GoogleAlertManager",
           "dashboard_url": "https://analytics.amplitude.com/share/google-alert-manager"
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -87,7 +87,7 @@
       "project": "YoutubeAudio.Fetch (影音 Podcast 萃取)",
       "card_class": "card-whale",
       "lucide_wrapper_class": "wrapper-whale",
-      "showcase_url": "./showcases.html#youtube-audio-fetch",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#youtube-audio-fetch",
       "live_url": "https://zhongzheng782.github.io/YoutubeAudio.Fetch/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-whale.svg",
       "emblem_alt": "聲波座頭鯨 Modern Emblem",
@@ -100,11 +100,11 @@
         "category": "saas",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/youtube-audio-fetch/"
+          "filter_path": "/YoutubeAudio.Fetch/"
         },
         "amplitude": {
           "enabled": true,
@@ -112,7 +112,7 @@
           "project_name": "YoutubeAudio.Fetch",
           "dashboard_url": "https://analytics.amplitude.com/share/youtube-audio-fetch"
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -122,7 +122,7 @@
       "project": "Docker-Deck (Docker 映像目錄)",
       "card_class": "card-docker-whale",
       "lucide_wrapper_class": "wrapper-docker-whale",
-      "showcase_url": "./showcases.html#docker-deck",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#docker-deck",
       "live_url": "https://github.com/wenchiehlee/dockers",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-docker-whale.svg",
       "emblem_alt": "Docker-Deck 貨櫃藍鯨 Modern Emblem",
@@ -135,11 +135,11 @@
         "category": "infra",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/docker-deck/"
+          "filter_path": "/dockers/"
         },
         "amplitude": {
           "enabled": false,
@@ -147,7 +147,7 @@
           "project_name": "Docker-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -157,7 +157,7 @@
       "project": "mkdocs-investment (多頭攻堅)",
       "card_class": "card-bull",
       "lucide_wrapper_class": "wrapper-bull",
-      "showcase_url": "./showcases.html#mkdocs-investment",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#mkdocs-investment",
       "live_url": "https://wenchiehlee.github.io/mkdocs-investment/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-bull.svg",
       "emblem_alt": "幾何狂牛 Modern Emblem",
@@ -165,16 +165,16 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
       "analytics": {
-        "views_total": 16099,
-        "active_users_30d": "3,543",
+        "views_total": 16102,
+        "active_users_30d": "3,546",
         "category": "docs",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/mkdocs-investment-bull/"
+          "filter_path": "/mkdocs-investment/"
         },
         "amplitude": {
           "enabled": false,
@@ -182,7 +182,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -192,7 +192,7 @@
       "project": "mkdocs-investment (防禦避險)",
       "card_class": "card-bear",
       "lucide_wrapper_class": "wrapper-bear",
-      "showcase_url": "./showcases.html#mkdocs-investment",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#mkdocs-investment",
       "live_url": "https://wenchiehlee.github.io/mkdocs-investment/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-bear.svg",
       "emblem_alt": "北歐守護熊 Modern Emblem",
@@ -200,16 +200,16 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
       "analytics": {
-        "views_total": 16099,
-        "active_users_30d": "3,543",
+        "views_total": 16102,
+        "active_users_30d": "3,546",
         "category": "docs",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/mkdocs-investment-bear/"
+          "filter_path": "/mkdocs-investment/"
         },
         "amplitude": {
           "enabled": false,
@@ -217,7 +217,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -227,7 +227,7 @@
       "project": "HomeAssistant (Android TV)",
       "card_class": "card-sentinel",
       "lucide_wrapper_class": "wrapper-sentinel",
-      "showcase_url": "./showcases.html#homeassistant-tv",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#homeassistant-tv",
       "live_url": "https://github.com/wenchiehlee-ux/UX-Deck/tree/main/deploy/android-tv",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-dog.svg",
       "emblem_alt": "客廳小管家 Modern Emblem",
@@ -240,11 +240,11 @@
         "category": "infra",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/homeassistant-tv/"
+          "filter_path": "/homeassistant/"
         },
         "amplitude": {
           "enabled": false,
@@ -252,7 +252,7 @@
           "project_name": "HomeAssistant",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -262,7 +262,7 @@
       "project": "wenchiehlee.quickconnect.to (Synology NAS)",
       "card_class": "card-pangolin",
       "lucide_wrapper_class": "wrapper-pangolin",
-      "showcase_url": "./showcases.html#synology-nas",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#synology-nas",
       "live_url": "https://wenchiehlee.synology.me",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-cat.svg",
       "emblem_alt": "敏捷守護貓 Modern Emblem",
@@ -270,16 +270,16 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以幾何守護者之姿作為私有雲系統門面；<strong>微觀</strong>以三角耳幾何貓首標示 Docker 容器、Tailscale 與連線狀態。",
       "analytics": {
-        "views_total": 17,
-        "active_users_30d": "0",
+        "views_total": 745,
+        "active_users_30d": "2",
         "category": "infra",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/synology-nas/"
+          "filter_path": "/synology/"
         },
         "amplitude": {
           "enabled": false,
@@ -287,7 +287,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -297,7 +297,7 @@
       "project": "My-TW-Coverage (台股個股覆蓋)",
       "card_class": "card-owl",
       "lucide_wrapper_class": "wrapper-owl",
-      "showcase_url": "./showcases.html#tw-coverage",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#tw-coverage",
       "live_url": "https://wenchiehlee-money.github.io/My-TW-Coverage/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-owl.svg",
       "emblem_alt": "拍拍翅萌萌鴞 Modern Emblem",
@@ -310,11 +310,11 @@
         "category": "fintech",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/tw-coverage/"
+          "filter_path": "/My-TW-Coverage/"
         },
         "amplitude": {
           "enabled": false,
@@ -322,7 +322,7 @@
           "project_name": "My-TW-Coverage",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -332,7 +332,7 @@
       "project": "InvestorConference (法人說明會與 IR 庫)",
       "card_class": "card-eagle",
       "lucide_wrapper_class": "wrapper-eagle",
-      "showcase_url": "./showcases.html#investor-conference",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#investor-conference",
       "live_url": "https://wenchiehlee-money.github.io/InvestorConference/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-eagle.svg",
       "emblem_alt": "領航雄鷹 Modern Emblem",
@@ -345,11 +345,11 @@
         "category": "fintech",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/investor-conference/"
+          "filter_path": "/InvestorConference/"
         },
         "amplitude": {
           "enabled": false,
@@ -357,7 +357,7 @@
           "project_name": "InvestorConference",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -367,7 +367,7 @@
       "project": "VIX (全球波動率與黑天鵝雷達)",
       "card_class": "card-swan",
       "lucide_wrapper_class": "wrapper-swan",
-      "showcase_url": "./showcases.html#vix",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#vix",
       "live_url": "https://wenchiehlee-money.github.io/VIX/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-swan.svg",
       "emblem_alt": "幾何黑天鵝 Modern Emblem",
@@ -380,11 +380,11 @@
         "category": "fintech",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/vix/"
+          "filter_path": "/VIX/"
         },
         "amplitude": {
           "enabled": false,
@@ -392,7 +392,7 @@
           "project_name": "VIX",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -402,7 +402,7 @@
       "project": "Synology-Photo-Tagger (相片智慧標籤)",
       "card_class": "card-squirrel",
       "lucide_wrapper_class": "wrapper-squirrel",
-      "showcase_url": "./showcases.html#synology-photo-tagger",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#synology-photo-tagger",
       "live_url": "https://zhongzheng782.github.io/Synology-Photo-Tagger/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-squirrel.svg",
       "emblem_alt": "採集松鼠 Modern Emblem",
@@ -415,11 +415,11 @@
         "category": "saas",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/synology-photo-tagger/"
+          "filter_path": "/Synology-Photo-Tagger/"
         },
         "amplitude": {
           "enabled": true,
@@ -427,7 +427,7 @@
           "project_name": "Synology-Photo-Tagger",
           "dashboard_url": "https://analytics.amplitude.com/share/synology-photo-tagger"
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     },
     {
@@ -437,7 +437,7 @@
       "project": "Skill-Deck (共享技能登錄庫)",
       "card_class": "card-rabbit",
       "lucide_wrapper_class": "wrapper-rabbit",
-      "showcase_url": "./showcases.html#skill-deck",
+      "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#skill-deck",
       "live_url": "https://wenchiehlee.github.io/skills/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit",
       "emblem_alt": "敏捷白兔 Modern Emblem",
@@ -450,11 +450,11 @@
         "category": "docs",
         "ga4": {
           "enabled": true,
-          "measurement_id": "G-SHARED-PORTAL",
+          "measurement_id": "G-913Z6DSVD2",
           "property_id": "463673189",
           "account_id": "333479515",
           "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
-          "filter_path": "/skill-deck/"
+          "filter_path": "/skills/"
         },
         "amplitude": {
           "enabled": false,
@@ -462,7 +462,7 @@
           "project_name": "Skill-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-27 13:12:13 UTC"
+        "last_sync": "2026-10-27 13:29:32 UTC"
       }
     }
   ]

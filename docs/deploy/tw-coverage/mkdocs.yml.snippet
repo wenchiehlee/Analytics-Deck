@@ -1,0 +1,45 @@
+# ==============================================================================
+# My-TW-Coverage: Recommended mkdocs.yml Configuration Snippet
+# Compatible with Material for MkDocs & UX-Deck Design Tokens
+# ==============================================================================
+
+site_name: My-TW-Coverage · 台股個股深度調研
+site_description: 運用 UX-Deck 統一設計系統之台股個股基本面、估值河流圖與目標價調研雷達
+
+theme:
+  name: material
+  language: zh-TW
+  palette:
+    # Light Mode (Clean Studio Foundation - Recommended Default)
+    - scheme: default
+      primary: emerald
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: 切換至暗色模式
+    # Dark Mode (Slate / Night Research)
+    - scheme: slate
+      primary: emerald
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: 切換至明亮模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - tables

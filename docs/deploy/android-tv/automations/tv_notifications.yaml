@@ -1,0 +1,218 @@
+# ==============================================================================
+# Home Assistant Automations: Android TV 10-Foot Frosted HUD (PiPup)
+# File: deploy/android-tv/automations/tv_notifications.yaml
+# Production Standard: 60% Translucent Dark Slate with 18px True Rounded Corners
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. 訪客門鈴即時提醒 (Doorbell Visitor Alert)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_doorbell_visitor"
+  alias: "TV HUD: 門鈴訪客即時提醒"
+  description: "當門鈴觸發或玄關偵測到訪客時，於客廳 Android TV 顯示 120 秒 18px 圓角毛玻璃 HUD"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_doorbell
+      to: "on"
+  action:
+    # 【方案 B 首選】：極致美感 18px 圓角透明 HUD (零白框、完美穿透電視畫面)
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/doorbell.png","width":480}}}
+    - service: rest_command.pipup_notify_2f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/doorbell.png","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 2. 洗衣機完成提醒 (Washer Complete Toast)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_washer_complete"
+  alias: "TV HUD: 洗衣完成提醒"
+  description: "洗衣機清洗完畢時，於電視右上角推播綠色完成狀態 HUD"
+  trigger:
+    - platform: state
+      entity_id: sensor.xi_yi_ji_current_status
+      to: "complete"
+  action:
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/washer_done.png","width":480}}}
+    - service: rest_command.pipup_notify_2f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/washer_done.png","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 3. 洗衣機運轉進度 (Washer Running Status)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_washer_running"
+  alias: "TV HUD: 洗衣機運轉進度"
+  description: "洗衣機運轉中階段推播冰晶藍進度通知"
+  trigger:
+    - platform: state
+      entity_id: sensor.xi_yi_ji_current_status
+      to: "running"
+  action:
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/washer_running.png","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 4. 乾衣完成提醒 (Dryer Complete Toast)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_dryer_complete"
+  alias: "TV HUD: 乾衣完成提醒"
+  description: "乾衣機烘乾程序結束時，於電視右上角推播溫暖橘金 HUD"
+  trigger:
+    - platform: state
+      entity_id: sensor.gan_yi_ji_current_status
+      to: "complete"
+  action:
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/dryer_done.png","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 5. 家庭行事曆日程提醒 (TimeTree Calendar Alert) — 多事件合併 HUD
+# ------------------------------------------------------------------------------
+- id: "tv_notify_calendar_schedule"
+  alias: "TV HUD: 今日日程提醒"
+  description: >
+    每分鐘主動查詢 TimeTree 行程。同時落在「15分鐘前」或「現在開始」窗口的多個事件，
+    合併成一張動態高度的 HUD 卡片（480×(104+28n)px），只送一次 PiPup 通知，
+    避免多個 popup 連續閃爍。支援最多 4 行事件，超過自動截斷為「…」。
+  trigger:
+    - platform: time_pattern
+      minutes: "/1"
+  action:
+    # 步驟 1：查詢現在前 1 分鐘到未來 16 分鐘內的所有行事曆事件（支援多行程重疊）
+    - service: calendar.get_events
+      target:
+        entity_id: calendar.timetree
+      data:
+        start_date_time: "{{ now() - timedelta(minutes=1) }}"
+        end_date_time: "{{ now() + timedelta(minutes=16) }}"
+      response_variable: cal_agenda
+
+    # 步驟 2：收集所有觸發事件的文字行，合併為單一訊息（以 | 分隔）
+    - variables:
+        # 「15分鐘前提醒」事件行（diff 840~930 秒）
+        upcoming_lines: >-
+          {% set ns = namespace(lines=[]) %}
+          {% for evt in cal_agenda['calendar.timetree']['events'] | default([]) %}
+            {% if 'T' in evt.start %}
+              {% set diff = as_timestamp(evt.start) - as_timestamp(now()) %}
+              {% if 840 <= diff <= 930 %}
+                {% set line = '15分鐘後：' ~ evt.summary
+                    ~ ' (' ~ (as_timestamp(evt.start) | timestamp_custom('%H:%M'))
+                    ~ '~' ~ (as_timestamp(evt.end) | timestamp_custom('%H:%M'))
+                    ~ ') ⏰' %}
+                {% set ns.lines = ns.lines + [line] %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.lines | join('|') }}
+
+        # 「行程開始」事件行（diff -30~59 秒）
+        start_now_lines: >-
+          {% set ns = namespace(lines=[]) %}
+          {% for evt in cal_agenda['calendar.timetree']['events'] | default([]) %}
+            {% if 'T' in evt.start %}
+              {% set diff = as_timestamp(evt.start) - as_timestamp(now()) %}
+              {% if -30 <= diff <= 59 %}
+                {% set line = '活動開始：' ~ evt.summary
+                    ~ ' (' ~ (as_timestamp(evt.start) | timestamp_custom('%H:%M'))
+                    ~ '~' ~ (as_timestamp(evt.end) | timestamp_custom('%H:%M'))
+                    ~ ') ⏰' %}
+                {% set ns.lines = ns.lines + [line] %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.lines | join('|') }}
+
+        has_upcoming: "{{ upcoming_lines | trim != '' }}"
+        has_start_now: "{{ start_now_lines | trim != '' }}"
+
+        # 合併標題：有「開始中」優先，否則顯示提醒
+        combined_title: >-
+          {% if has_start_now %}行程現在開始 🔔{% elif has_upcoming %}今日行程提醒 📅{% endif %}
+
+        # 合併訊息：「開始中」行在前，「15分鐘前」行在後，以 | 分隔
+        combined_message: >-
+          {{ (start_now_lines | trim ~ ('|' if (start_now_lines | trim) and (upcoming_lines | trim) else '') ~ (upcoming_lines | trim)) | trim }}
+
+        should_notify: "{{ has_upcoming or has_start_now }}"
+
+    # 步驟 3：只在有事件需通知時才繼續
+    - condition: template
+      value_template: "{{ should_notify }}"
+
+    # 步驟 4：一次 render → 生成動態高度 HUD PNG（含所有事件行堆疊）
+    - service: shell_command.render_calendar_hud
+      data:
+        title: "{{ combined_title }}"
+        message: "{{ combined_message }}"
+
+    # 步驟 5：一次 PiPup 推播（Solution B: 全透明白框 + PNG 圖）
+    - service: rest_command.pipup_notify_1f
+      continue_on_error: true
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/calendar_event.png?ts={{ as_timestamp(now()) | int }}","width":480}}}
+    - service: rest_command.pipup_notify_2f
+      continue_on_error: true
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/calendar_event.png?ts={{ as_timestamp(now()) | int }}","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 6. 設備低電量警告 (Battery Low Warning)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_battery_low"
+  alias: "TV HUD: 設備電量警告"
+  description: "客廳夜燈或感測器電量低於 10% 時於電視警示"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.nightlight_battery
+      below: 10
+  action:
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/battery_low.png","width":480}}}
+
+# ------------------------------------------------------------------------------
+# 7. 外送到達提醒 (Foodpanda Delivery Alert)
+# ------------------------------------------------------------------------------
+- id: "tv_notify_foodpanda_delivery"
+  alias: "TV HUD: 外送到達提醒"
+  description: "外送員抵達時於電視右上角推播亮橘 HUD"
+  trigger:
+    - platform: state
+      entity_id: sensor.foodpanda_order_status
+      to: "arrived"
+  action:
+    - service: rest_command.pipup_notify_1f
+      data:
+        payload_json: >-
+          {"duration":120,"position":0,"backgroundColor":"#00000000","title":"","message":"","media":{"image":{"uri":"http://192.168.31.101:8123/local/ux-deck/huds/delivery.png","width":480}}}
+
+# ==============================================================================
+# 附錄：Home Assistant configuration.yaml 必備 rest_command 配置
+# ==============================================================================
+# rest_command:
+#   pipup_notify_1f:
+#     url: "http://192.168.31.232:7979/notify"
+#     method: POST
+#     content_type: "application/json"
+#     payload: "{{ payload_json }}"
+#   pipup_notify_2f:
+#     url: "http://192.168.31.215:7979/notify"
+#     method: POST
+#     content_type: "application/json"
+#     payload: "{{ payload_json }}"

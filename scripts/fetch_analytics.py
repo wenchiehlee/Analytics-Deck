@@ -115,21 +115,30 @@ def fetch_live_ga4(data: dict, credentials_input: str):
 
     for ep in data.get("endpoints", []):
         ep_id = ep["id"]
-        # Determine filter pattern for GA4 path
+        # Determine filter pattern for GA4 path or hostname
         filter_path = ep.get("analytics", {}).get("ga4", {}).get("filter_path", "")
-        if "mkdocs-life" in ep_id:
+        if ep_id == "synology-nas":
+            filter_field = "hostName"
+            filter_val = "synology.me"
+            match_type = "CONTAINS"
+        elif "mkdocs-life" in ep_id:
+            filter_field = "pagePath"
             filter_val = "mkdocs-life"
             match_type = "CONTAINS"
         elif "mkdocs-investment" in ep_id:
+            filter_field = "pagePath"
             filter_val = "mkdocs-investment"
             match_type = "CONTAINS"
         elif "google-alert-manager" in ep_id or "GoogleAlertManager" in ep_id:
+            filter_field = "pagePath"
             filter_val = "(?i)google.*alert.*manager"
             match_type = "PARTIAL_REGEXP"
         elif filter_path:
+            filter_field = "pagePath"
             filter_val = filter_path.strip("/")
             match_type = "CONTAINS"
         else:
+            filter_field = "pagePath"
             filter_val = ep_id
             match_type = "CONTAINS"
 
@@ -139,7 +148,7 @@ def fetch_live_ga4(data: dict, credentials_input: str):
             "metrics": [{"name": "screenPageViews"}],
             "dimensionFilter": {
                 "filter": {
-                    "fieldName": "pagePath",
+                    "fieldName": filter_field,
                     "stringFilter": {
                         "matchType": match_type,
                         "value": filter_val,
@@ -155,7 +164,7 @@ def fetch_live_ga4(data: dict, credentials_input: str):
             "metrics": [{"name": "activeUsers"}],
             "dimensionFilter": {
                 "filter": {
-                    "fieldName": "pagePath",
+                    "fieldName": filter_field,
                     "stringFilter": {
                         "matchType": match_type,
                         "value": filter_val,

@@ -1,0 +1,139 @@
+# ==============================================================================
+# Home Assistant Lovelace View: Android TV 10-Foot Living Room Dashboard
+# Path in HA: /config/dashboards/tv_dashboard.yaml (or add view to lovelace)
+# Optimized for: Android TV Remote D-pad Navigation & 3-4 Meter Glanceability
+# ==============================================================================
+
+title: "客廳守護電視看板 (TV Sentinel HUD)"
+views:
+  - title: "客廳大螢幕"
+    path: "living-room-tv"
+    theme: "tv_frosted_hud"
+    badges: []
+    cards:
+      # 1. 頂部狀態橫幅：守護犬 Mascot + 歡迎詞 + 客廳即時情境
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+              background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(10, 12, 18, 0.9) 100%);
+              border: 1.5px solid rgba(56, 189, 248, 0.3);
+              border-radius: 20px;
+              padding: 16px 24px;
+              margin-bottom: 20px;
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: tv_sentinel_header
+              name: "客廳守護中 · 家居一切平安"
+              icon: mdi:shield-check
+              styles:
+                name:
+                  - font-size: "26px"
+                  - font-weight: "700"
+                  - color: "#ffffff"
+                icon:
+                  - color: "#38bdf8"
+                  - width: "36px"
+
+      # 2. 主格：門鈴與監視即時串流 (左側 60%) + 客廳快捷情境與家電 (右側 40%)
+      - type: horizontal-stack
+        cards:
+          # 左側：玄關與前門即時相機串流大卡片
+          - type: picture-entity
+            title: "玄關即時監控 (Front Door Sentinel)"
+            entity: camera.front_door # 請替換為您的門鈴或監視相機實體
+            camera_view: live
+            show_state: true
+            show_name: true
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 20px;
+                  overflow: hidden;
+                  height: 480px;
+                }
+                ha-card:focus, ha-card:focus-within {
+                  border-color: #38bdf8 !important;
+                  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6) !important;
+                }
+
+          # 右側直排：客廳燈光、劇院情境、冷暖空調
+          - type: vertical-stack
+            cards:
+              - type: grid
+                columns: 2
+                square: false
+                cards:
+                  - type: button
+                    name: "劇院模式"
+                    icon: mdi:movie-open
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      target:
+                        entity_id: scene.living_room_cinema
+
+                  - type: button
+                    name: "明亮會客"
+                    icon: mdi:lightbulb-group
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      target:
+                        entity_id: scene.living_room_bright
+
+                  - type: button
+                    name: "空調 25°C"
+                    icon: mdi:air-conditioner
+                    tap_action:
+                      action: call-service
+                      service: climate.set_temperature
+                      data:
+                        temperature: 25
+                      target:
+                        entity_id: climate.living_room_ac
+
+                  - type: button
+                    name: "解鎖玄關大門"
+                    icon: mdi:lock-open-variant
+                    tap_action:
+                      action: call-service
+                      service: lock.unlock
+                      target:
+                        entity_id: lock.front_door_lock
+
+              # 3. 10 英呎電視高對比家庭行事曆卡片 (Glanceable 10-Foot Calendar)
+              - type: calendar
+                title: "📅 今日家庭行程 (Family Schedule)"
+                entities:
+                  - calendar.timetree # 部署平台實體
+                initial_view: dayGridDay
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: rgba(15, 23, 42, 0.65) !important;
+                      border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
+                      border-radius: 20px !important;
+                      backdrop-filter: blur(20px);
+                      -webkit-backdrop-filter: blur(20px);
+                      padding: 12px 16px;
+                      margin-top: 16px;
+                    }
+                    ha-card:focus, ha-card:focus-within {
+                      border-color: #38bdf8 !important;
+                      box-shadow: 0 0 25px rgba(56, 189, 248, 0.6) !important;
+                    }
+                    .fc-toolbar-title {
+                      font-size: 20px !important;
+                      font-weight: 700 !important;
+                      color: #38bdf8 !important;
+                    }
+                    .fc-event {
+                      font-size: 16px !important;
+                      font-weight: 600 !important;
+                      border-radius: 8px !important;
+                      padding: 4px 8px !important;
+                    }

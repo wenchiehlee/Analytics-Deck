@@ -78,6 +78,20 @@ def sync_assets():
             shutil.copy2(src, BASE_DIR / fav)
             shutil.copy2(src, BASE_DIR / "docs" / fav)
 
+    # Mirror showcases.html to root and docs/
+    showcases_file = UX_DECK_DIR / "showcases.html"
+    if showcases_file.exists():
+        shutil.copy2(showcases_file, BASE_DIR / "showcases.html")
+        shutil.copy2(showcases_file, BASE_DIR / "docs" / "showcases.html")
+
+    # Mirror deploy/ directory if exists
+    deploy_dir = UX_DECK_DIR / "deploy"
+    if deploy_dir.exists():
+        for target in [BASE_DIR / "deploy", BASE_DIR / "docs" / "deploy"]:
+            if target.exists():
+                shutil.rmtree(target)
+            shutil.copytree(deploy_dir, target)
+
     # Mirror tokens to docs/tokens for GitHub Pages
     docs_tokens = BASE_DIR / "docs" / "tokens"
     if docs_tokens.exists():
@@ -124,6 +138,9 @@ def parse_mascot_cards(html_content: str):
         lucide_a = duo_stage.find("a", class_="lucide-tile") if duo_stage else None
 
         showcase_url = emblem_a.get("href", "") if emblem_a else ""
+        if showcase_url.startswith("./showcases.html") or showcase_url.startswith("showcases.html"):
+            anchor = showcase_url.split("#")[-1] if "#" in showcase_url else ""
+            showcase_url = f"https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#{anchor}" if anchor else "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html"
         emblem_img = emblem_a.find("img") if emblem_a else None
         emblem_src = emblem_img.get("src", "") if emblem_img else ""
         emblem_alt = emblem_img.get("alt", "") if emblem_img else ""
@@ -214,7 +231,7 @@ def merge_with_existing(parsed_endpoints):
             "category": category,
             "ga4": {
                 "enabled": True,
-                "measurement_id": "G-913Z6DSVD2" if ep_id == "mkdocs-life" else "G-SHARED-PORTAL",
+                "measurement_id": "G-913Z6DSVD2",
                 "property_id": MASTER_GA4_PROPERTY,
                 "account_id": MASTER_GA4_ACCOUNT,
                 "dashboard_url": MASTER_GA4_URL,

@@ -1,0 +1,235 @@
+/* ==========================================================================
+   My-TW-Coverage: Taiwan Equity Research & Valuation Theme
+   Tailored for Material for MkDocs & GitHub Pages
+   UX-Deck Unified Design System
+   ========================================================================== */
+
+:root {
+  /* Brand Tokens: Taiwan Pine Emerald & Research Amber */
+  --tw-coverage-primary:     #059669;
+  --tw-coverage-primary-dark:#047857;
+  --tw-coverage-accent:      #d97706;
+  --tw-coverage-bg:          #ffffff;
+  --tw-coverage-surface:     #ffffff;
+  --tw-coverage-surface-sub: #f8fafc;
+  --tw-coverage-border:      #e2e8f0;
+  --tw-coverage-border-sub:  #f1f5f9;
+  --tw-coverage-text:        #0f172a;
+  --tw-coverage-text-muted:  #64748b;
+
+  /* Taiwan Market Standard (TWSE: Red Up/Gain, Green Down/Loss) */
+  --tw-market-gain:          #dc2626;
+  --tw-market-loss:          #16a34a;
+  --tw-market-neutral:       #64748b;
+
+  /* Typography Stacks */
+  --tw-font-sans:            "Inter", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tw-font-mono:            "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Material for MkDocs Theme Overrides (Clean Studio Light Foundation) */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--tw-coverage-primary);
+  --md-primary-fg-color--light: #10b981;
+  --md-primary-fg-color--dark:  var(--tw-coverage-primary-dark);
+  --md-accent-fg-color:         var(--tw-coverage-accent);
+  --md-default-fg-color:        var(--tw-coverage-text);
+  --md-default-bg-color:        var(--tw-coverage-bg);
+}
+
+/* Dark Scheme Compatibility */
+[data-md-color-scheme="slate"] {
+  --tw-coverage-surface:     #1e293b;
+  --tw-coverage-surface-sub: #0f172a;
+  --tw-coverage-border:      #334155;
+  --tw-coverage-text:        #f8fafc;
+  --tw-coverage-text-muted:  #94a3b8;
+}
+
+/* ==========================================================================
+   1. Equity Coverage Header Component (個股研究封面卡片)
+   ========================================================================== */
+.tw-coverage-card {
+  background: var(--tw-coverage-surface);
+  border: 1px solid var(--tw-coverage-border);
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+  margin: 1.75rem 0 2.25rem;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.05);
+  font-family: var(--tw-font-sans);
+  transition: all 0.25s ease;
+}
+.tw-coverage-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(5, 150, 105, 0.08);
+  border-color: #cbd5e1;
+}
+
+.tw-coverage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--tw-coverage-border-sub);
+  margin-bottom: 1.25rem;
+}
+
+.tw-ticker-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.35rem;
+}
+
+/* Action Rating Pills */
+.tw-rating-pill {
+  font-family: var(--tw-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.03em;
+}
+.tw-rating-buy {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+.tw-rating-outperform {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.tw-rating-hold {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+.tw-rating-reduce {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.tw-sector-tag {
+  font-size: 0.8rem;
+  color: var(--tw-coverage-text-muted);
+  font-weight: 600;
+}
+
+.tw-ticker-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--tw-coverage-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Price Box */
+.tw-price-box {
+  text-align: right;
+}
+.tw-price-label {
+  font-size: 0.72rem;
+  color: var(--tw-coverage-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.tw-price-current {
+  font-family: var(--tw-font-mono);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--tw-market-gain);
+  font-variant-numeric: tabular-nums;
+}
+.tw-price-target {
+  font-size: 0.95rem;
+  color: var(--tw-coverage-text-muted);
+  font-weight: 600;
+}
+
+/* Research Thesis / Highlight Box */
+.tw-thesis-box {
+  background: var(--tw-coverage-surface-sub);
+  border-left: 3px solid var(--tw-coverage-primary);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.15rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--tw-coverage-text);
+  margin-bottom: 1.25rem;
+}
+.tw-thesis-box strong {
+  color: var(--tw-coverage-primary-dark);
+}
+
+/* ==========================================================================
+   2. Valuation & Fundamentals KPI Grid (估值評價矩陣)
+   ========================================================================== */
+.tw-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.85rem;
+}
+
+.tw-kpi-tile {
+  background: var(--tw-coverage-surface-sub);
+  border: 1px solid var(--tw-coverage-border);
+  border-radius: 12px;
+  padding: 0.85rem 0.75rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.tw-kpi-tile:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+.tw-kpi-label {
+  font-size: 0.72rem;
+  color: var(--tw-coverage-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.tw-kpi-val {
+  font-family: var(--tw-font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--tw-coverage-text);
+  font-variant-numeric: tabular-nums;
+}
+.tw-kpi-val.gain { color: var(--tw-market-gain); }
+.tw-kpi-val.emerald { color: var(--tw-coverage-primary); }
+
+/* ==========================================================================
+   3. Mascot Icon Helper (.ux-icon)
+   ========================================================================== */
+.ux-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.6;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin="round";
+  vertical-align: middle;
+}
+.ux-icon-owl {
+  color: var(--tw-coverage-primary);
+  transition: transform 0.25s ease;
+}
+.tw-coverage-card:hover .ux-icon-owl {
+  transform: translateY(-2px) scale(1.1);
+}
