@@ -35,11 +35,15 @@ def update_offline_snapshot(data: dict):
         analytics = ep.get("analytics", {})
         analytics["last_sync"] = now_utc
         
-        # Ensure default figures if missing
-        if "views_total" not in analytics:
-            analytics["views_total"] = 20595 if ep_id == "mkdocs-life" else 1580
-        if "active_users_30d" not in analytics:
-            analytics["active_users_30d"] = "1.2k" if ep_id == "mkdocs-life" else "380"
+        # Only mkdocs-life has verified benchmark figures; all other endpoints show --- until live GA4 API fetch
+        if ep_id == "mkdocs-life":
+            analytics.setdefault("views_total", 20595)
+            analytics.setdefault("active_users_30d", "1.2k")
+        else:
+            if analytics.get("views_total") in [1580, "1580"]:
+                analytics["views_total"] = None
+            if analytics.get("active_users_30d") in [380, "380"]:
+                analytics["active_users_30d"] = None
         
         ep["analytics"] = analytics
 

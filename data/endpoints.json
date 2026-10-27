@@ -60,8 +60,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以破曉知更旭日圓盤作為系統門面；<strong>微觀</strong>以圓滾高翹尾飛鳥作為情報雷達與通報 Chip 線性標誌。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "saas",
         "ga4": {
           "enabled": true,
@@ -95,8 +95,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以深海翻騰水花躍鯨作為播放器封面；<strong>微觀</strong>以聲波噴泉座頭鯨作為聲學控制與音軌切換指示。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "saas",
         "ga4": {
           "enabled": true,
@@ -130,8 +130,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以 Docker 藍鯨承載貨櫃作為品牌紋章；<strong>微觀</strong>以貨櫃藍鯨線性圖標連結映像探索與容器啟動。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "infra",
         "ga4": {
           "enabled": true,
@@ -165,8 +165,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -200,8 +200,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -235,8 +235,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以忠誠巡守柴柴作為電視客廳情境總覽封面；<strong>微觀</strong>以豎耳線性犬首標記智慧家庭通知與即時監控。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "infra",
         "ga4": {
           "enabled": true,
@@ -270,8 +270,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以幾何守護者之姿作為私有雲系統門面；<strong>微觀</strong>以三角耳幾何貓首標示 Docker 容器、Tailscale 與連線狀態。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "infra",
         "ga4": {
           "enabled": true,
@@ -305,8 +305,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以治癒系萌鴞作為個股研報官方認證印鑑；<strong>微觀</strong>以大眼線性貓頭鷹作為研究評等與安全邊際欄位圖標。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "fintech",
         "ga4": {
           "enabled": true,
@@ -340,8 +340,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以展翅高飛的綠色領航雄鷹紋章作為法說會資料庫門面；<strong>微觀</strong>以銳利幾何鷹影作為重要事件與高階展望標籤。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "fintech",
         "ga4": {
           "enabled": true,
@@ -375,8 +375,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以幾何黑天鵝極端風險徽章作為雷達封面；<strong>微觀</strong>以高對比曜石天鵝作為市場恐慌 30 閾值與壓力測試標記。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "fintech",
         "ga4": {
           "enabled": true,
@@ -410,8 +410,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以抱握松果的靈巧松鼠作為相片資產徽章；<strong>微觀</strong>以大尾線性松鼠標記 AI 物件辨識、場景分類與 EXIF/XMP 智慧標籤入庫。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "saas",
         "ga4": {
           "enabled": true,
@@ -445,8 +445,8 @@
       "inline_svg_html": "<svg aria-hidden=\"true\" class=\"ux-icon ux-icon-xl ux-icon-rabbit\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\">\n<path d=\"M13 16a3 3 0 0 1 2.24 5\"></path>\n<path d=\"M18 12h.01\"></path>\n<path d=\"M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3\"></path>\n<path d=\"M20 8.54V4a2 2 0 1 0-4 0v3\"></path>\n<path d=\"M7.612 12.524a3 3 0 1 0-1.6 4.3\"></path>\n</svg>",
       "desc_html": "<strong>宏觀</strong>以跑酷凌空飛躍的敏捷白兔紋章呈現技能探索的品牌入口；<strong>微觀</strong>以跑酷疾速白兔線性圖標標示搜尋、分類與技能瀏覽功能。",
       "analytics": {
-        "views_total": 1580,
-        "active_users_30d": "380",
+        "views_total": null,
+        "active_users_30d": null,
         "category": "docs",
         "ga4": {
           "enabled": true,

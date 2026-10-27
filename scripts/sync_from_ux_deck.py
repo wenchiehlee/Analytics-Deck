@@ -207,10 +207,10 @@ def merge_with_existing(parsed_endpoints):
         elif any(k in ep_id for k in ["coverage", "conference", "vix"]):
             category = "fintech"
 
-        # Preserve analytics config or initialize
+        # Preserve analytics config or initialize (only mkdocs-life has verified numbers; others start as None/---)
         analytics = existing.get("analytics", {
-            "views_total": 20595 if ep_id == "mkdocs-life" else 1580,
-            "active_users_30d": "1.2k" if ep_id == "mkdocs-life" else "380",
+            "views_total": 20595 if ep_id == "mkdocs-life" else None,
+            "active_users_30d": "1.2k" if ep_id == "mkdocs-life" else None,
             "category": category,
             "ga4": {
                 "enabled": True,

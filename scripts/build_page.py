@@ -25,9 +25,20 @@ DOCS_HTML = DOCS_DIR / "index.html"
 
 def generate_card_html(ep: dict) -> str:
     analytics = ep.get("analytics", {})
-    views = analytics.get("views_total", 0)
-    views_formatted = f"{views:,}"
-    active_30d = analytics.get("active_users_30d", "0")
+    views = analytics.get("views_total")
+    if views is None or views == "" or views == "---":
+        views_formatted = "---"
+    elif isinstance(views, (int, float)):
+        views_formatted = f"{views:,}"
+    else:
+        views_formatted = str(views)
+
+    active = analytics.get("active_users_30d")
+    if active is None or active == "" or active == "---":
+        active_30d = "---"
+    else:
+        active_30d = str(active)
+
     category = analytics.get("category", "docs")
     
     ga4 = analytics.get("ga4", {})
