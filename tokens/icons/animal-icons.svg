@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- ========================================================================
+       UX-Deck Minimal Line Iconography (ask-bridge / Lucide Inspired)
+       Grid: 24x24 · Stroke: 1.6px · Round Caps & Joins · Fill: None
+       Pure Geometric Lines · High Recognition · Zero Visual Noise
+       ======================================================================== -->
+
+  <!-- 1. mkdocs-life: Scandinavian Line Deer (Graceful, Reflective, Clean) -->
+  <symbol id="icon-deer-life" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Antlers -->
+    <path d="M3 3c0 2 1 3 4 3c2 0 3 1 3 3" />
+    <path d="M21 3c0 2-1 3-4 3c-2 0-3 .3-3 3" />
+    <path d="M7 3c0 1.3.3 2.3 1 3" />
+    <path d="M17 3c0 1.3-.3 2.3-1 3" />
+    <!-- Deer Head Contour -->
+    <path d="M12 19c-1 0-4-3-4-6.5 0-2 1.3-3.5 4-3.5s4 1.5 4 3.5c0 3.5-3 6.5-4 6.5" />
+    <!-- Ears -->
+    <path d="M8 10.5l-2-1.5" />
+    <path d="M16 10.5l2-1.5" />
+    <!-- Eyes & Nose -->
+    <path d="M10 13v.01" />
+    <path d="M14 13v.01" />
+    <path d="M12 16.5h.01" />
+  </symbol>
+
+  <!-- 2. GoogleAlertManager: Lucide Official Bird (Alert Orange) -->
+  <symbol id="icon-falcon-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 7h.01" />
+    <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" />
+    <path d="m20 7 2 .5-2 .5" />
+    <path d="M10 18v3" />
+    <path d="M14 17.75V21" />
+    <path d="M7 18a6 6 0 0 0 3.84-10.61" />
+  </symbol>
+
+  <!-- 3. YoutubeAudio.Fetch: Fluid Wave Whale (Harmonic Resonance, Oceanic Cadence) -->
+  <symbol id="icon-whale-sonic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Acoustic Water Spout (Blowhole Resonance) -->
+    <path d="M18 9V5a2 2 0 0 0-4 0" />
+    <path d="M18 5a2 2 0 0 1 4 0" />
+    <!-- Fluid Whale Body & Tail Fluke -->
+    <path d="M6 9.7 3.9 8.4C2.7 7.7 2 6.4 2 5V3c2 0 4 2 4 2s2-2 4-2v2c0 1.4-.7 2.7-1.9 3.4l-3.8 2.4A5 5 0 0 0 7 20h12c1.7 0 3-1.3 3-3v-3c0-2.8-2.2-5-5-5-2.7 0-5.1 1.4-6.4 3.6L9.7 14A2 2 0 0 1 6 13Z" />
+    <!-- Eye Accent -->
+    <path d="M15 15h.01" />
+  </symbol>
+
+  <!-- 4. mkdocs-investment: Wall Street Geometric Bull (Alpha & Strength) -->
+  <symbol id="icon-bull-fintech" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Swept Bull Horns -->
+    <path d="M7 10a5 5 0 0 1-4-8 4 4 0 0 0 4 4h10a4 4 0 0 0 4-4 5 5 0 0 1-4 8" />
+    <!-- Cheeks & Head -->
+    <path d="M6.4 15c-.3-.6-.4-1.3-.4-2 0-4 3-3 3-7" />
+    <path d="M17.6 15c.3-.6.4-1.3.4-2 0-4-3-3-3-7" />
+    <!-- Determined Eyes -->
+    <path d="M10 12.5v1.5" />
+    <path d="M14 12.5v1.5" />
+    <!-- Strong Muzzle & Ring -->
+    <path d="M15 22a4 4 0 1 0-3-6.7A4 4 0 1 0 9 22Z" />
+    <path d="M9 18h.01" />
+    <path d="M15 18h.01" />
+  </symbol>
+
+  <!-- 5. mkdocs-investment: Nordic Geometric Bear (Preservation & Risk Shield) -->
+  <symbol id="icon-bear-defense" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Round Bear Ears -->
+    <path d="m6 7 .5.5" />
+    <path d="m18 7-.5.5" />
+    <!-- Chubby Head Contour -->
+    <path d="M20.8 4.2c-1.6-1.6-4.1-1.6-5.7 0l-1 1a13.6 13.6 0 0 0-4.2 0l-1-1a4 4 0 0 0-5.8 5.6A7 7 0 0 0 2 13.5C2 18.2 6.5 22 12 22s10-3.8 10-8.5a7 7 0 0 0-1.1-3.8c1.5-1.6 1.5-4-.1-5.5" />
+    <!-- Cute Eyes -->
+    <path d="M10 12v-.5" />
+    <path d="M14 12v-.5" />
+    <!-- Snout & Mouth -->
+    <path d="M14 16h-4" />
+    <path d="M12 16v2" />
+  </symbol>
+
+  <!-- 6. HomeAssistant TV: 10-ft Sentinel Guardian Dog (Alert, Faithful, High Contrast) -->
+  <symbol id="icon-sentinel-tv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Floppy Puppy Ears & Forehead -->
+    <path d="M8.5 8.5c-.38 1.05-1.08 2.03-2.34 2.5-1.93.72-3.58-.3-3.66-1-.11-.99 1.18-6.53 4-7 1.92-.32 3.65.85 3.65 2.24A7.5 7.5 0 0 1 14 5.28c0-1.39 1.84-2.6 3.77-2.28 2.82.47 4.11 6.01 4 7-.08.7-1.73 1.72-3.66 1-1.26-.47-1.85-1.45-2.24-2.5" />
+    <!-- Friendly Jawline Contour -->
+    <path d="M4.42 11.25A13.15 13.15 0 0 0 4 14.56C4 18.73 7.58 21 12 21s8-2.27 8-6.44a11.7 11.7 0 0 0-.49-3.31" />
+    <!-- Clear Eyes -->
+    <path d="M8 14v.5" />
+    <path d="M16 14v.5" />
+    <!-- Nose Tip -->
+    <path d="M11.25 16.25h1.5L12 17z" />
+  </symbol>
+
+  <!-- 7. My-TW-Coverage: Chubby Flapping Owlet (Cute Insight Research Owl - Lucide Proposal A without feet) -->
+  <symbol id="icon-owl-coverage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Round Chubby Body & Ear Tufts -->
+    <path d="M5.5 5.5 C4 7.5 3.5 10.5 3.5 13.5 C3.5 18 7 21 12 21 C17 21 20.5 18 20.5 13.5 C20.5 10.5 20 7.5 18.5 5.5 L16.8 7 C14.5 6 9.5 6 7.2 7 Z" />
+    <!-- Brow Hood Arc to Beak -->
+    <path d="M7 6.5 C9 8.5 11 9.5 12 12 C13 9.5 15 8.5 17 6.5" />
+    <!-- Left Big Concentric Eye -->
+    <circle cx="8" cy="12" r="3.2" />
+    <circle cx="8" cy="12" r="1.3" />
+    <!-- Right Big Concentric Eye -->
+    <circle cx="16" cy="12" r="3.2" />
+    <circle cx="16" cy="12" r="1.3" />
+    <!-- Layered Flapping Wings -->
+    <path d="M3.8 14.5 C5.5 15.5 7.5 17.5 8.5 20" />
+    <path d="M20.2 14.5 C18.5 15.5 16.5 17.5 15.5 20" />
+  </symbol>
+
+  <!-- 8. wenchiehlee.quickconnect.to: Lucide Agile Guardian Cat (Private Cloud Sentinel) -->
+  <symbol id="icon-pangolin-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z" />
+    <path d="M8 14v.5" />
+    <path d="M16 14v.5" />
+    <path d="M11.25 16.25h1.5L12 17l-.75-.75Z" />
+  </symbol>
+
+  <!-- 9. Synology-Photo-Tagger: Agile Organizing Squirrel (AI Vision Tagger & Photo Asset Collector) -->
+  <symbol id="icon-squirrel-tagger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15.236 22a3 3 0 0 0-2.2-5" />
+    <path d="M16 20a3 3 0 0 1 3-3h1a2 2 0 0 0 2-2v-2a4 4 0 0 0-4-4V4" />
+    <path d="M18 13h.01" />
+    <path d="M18 6a4 4 0 0 0-4 4 7 7 0 0 0-7 7c0-5 4-5 4-10.5a4.5 4.5 0 1 0-9 0 2.5 2.5 0 0 0 5 0C7 10 3 11 3 17c0 2.8 2.2 5 5 5h10" />
+  </symbol>
+  <!-- Docker-Deck: Container Blue Whale -->
+  <symbol id="icon-docker-whale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="3" width="3" height="3" rx=".4"/><rect x="11" y="3" width="3" height="3" rx=".4"/><rect x="15" y="3" width="3" height="3" rx=".4"/>
+    <rect x="9" y="7" width="3" height="3" rx=".4"/><rect x="13" y="7" width="3" height="3" rx=".4"/><rect x="17" y="7" width="3" height="3" rx=".4"/>
+    <path d="M4 12c1 0 1.7-.5 2.2-1.3l1.1 1.3h11.5c1.7 0 2.8 1.1 2.8 2.8 0 3.3-2.8 5.9-6.7 5.9h-4.5c-4.2 0-7.4-2.5-7.9-6.1-.1-.8.2-1.5.7-2-1-.4-1.6-1.2-1.8-2.2 1.2.2 2 .7 2.6 1.6Z"/>
+    <circle cx="18.5" cy="14.2" r=".55" fill="currentColor" stroke="none"/>
+  </symbol>
+</svg>

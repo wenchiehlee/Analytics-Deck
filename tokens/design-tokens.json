@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json.schemastore.org/design-tokens.json",
+  "name": "UX-Deck Unified Tokens",
+  "version": "1.0.0",
+  "description": "Cross-project design tokens for sibling repositories (mkdocs-life, GoogleAlertManager, YoutubeAudio.Fetch, mkdocs-investment, HomeAssistant TV)",
+  "spacing": {
+    "2xs": "4px",
+    "xs": "8px",
+    "sm": "12px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px"
+  },
+  "radii": {
+    "sm": "6px",
+    "md": "10px",
+    "lg": "16px",
+    "xl": "24px",
+    "full": "9999px"
+  },
+  "profiles": {
+    "mkdocs-life": {
+      "theme": "Warm Editorial",
+      "primary": "#0d9488",
+      "surface": "#faf8f5",
+      "accent": "#e07a5f",
+      "text": "#292524",
+      "textMuted": "#78716c",
+      "purpose": "Life logging, reflections, knowledge gardening"
+    },
+    "google-alert-manager": {
+      "theme": "SaaS Signal Intelligence",
+      "primary": "#4f46e5",
+      "surface": "#f8fafc",
+      "accent": "#06b6d4",
+      "text": "#0f172a",
+      "textMuted": "#64748b",
+      "purpose": "Alert feeds triage, keyword rules, rapid scanning"
+    },
+    "youtube-audio-fetch": {
+      "theme": "Studio Soundwave · 幻紫與串流青",
+      "primary": "#8b5cf6",
+      "surface": "#ffffff",
+      "surfaceCard": "#ffffff",
+      "accent": "#06b6d4",
+      "mascotGlow": "linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)",
+      "text": "#0f172a",
+      "textMuted": "#64748b",
+      "purpose": "YouTube 影音音訊萃取、雙欄集數導覽、即時動態逐字稿字幕與立體聲播放面板"
+    },
+    "mkdocs-investment": {
+      "theme": "Fintech Navy & High-Density Metrics",
+      "primary": "#2563eb",
+      "surface": "#0a0e17",
+      "accent": "#10b981",
+      "gainTW": "#ef4444",
+      "lossTW": "#22c55e",
+      "text": "#f1f5f9",
+      "textMuted": "#94a3b8",
+      "purpose": "Financial reports, investment research, KPI summary grids"
+    },
+    "homeassistant-tv": {
+      "theme": "10-foot Frosted HUD Overlay",
+      "surfaceScrim": "rgba(10, 10, 16, 0.82)",
+      "surfaceCard": "rgba(25, 30, 45, 0.92)",
+      "borderFocus": "#38bdf8",
+      "text": "#ffffff",
+      "textMuted": "#cbd5e1",
+      "purpose": "Android TV living room notifications, glanceable, D-pad focusable",
+      "animalMascot": {
+        "species": "Sentinel Guard Dog / Night Sentinel",
+        "symbolId": "icon-sentinel-tv",
+        "rationale": "Loyal home protection, large eyes and pricked ears instantly recognizable from 3-4 meters away"
+      }
+    },
+    "my-tw-coverage": {
+      "theme": "Taiwan Equities Deep Coverage & Valuation Radar",
+      "primary": "#059669",
+      "surface": "#ffffff",
+      "surfaceCard": "#f8fafc",
+      "accent": "#d97706",
+      "gainTW": "#dc2626",
+      "lossTW": "#16a34a",
+      "text": "#0f172a",
+      "textMuted": "#475569",
+      "purpose": "Individual Taiwan equity deep-dive reports, valuation radar, and target price models"
+    },
+    "synology-nas": {
+      "theme": "Private Cloud DevOps Sentinel",
+      "primary": "#0284c7",
+      "surface": "#ffffff",
+      "surfaceCard": "#f0f9ff",
+      "accent": "#38bdf8",
+      "text": "#0f172a",
+      "textMuted": "#475569",
+      "purpose": "Self-hosted private cloud services, Docker container status, and Tailscale mesh security"
+    },
+    "investor-conference": {
+      "theme": "Institutional IR Intelligence & Conference Digest",
+      "primary": "#22a553",
+      "surface": "#ffffff",
+      "surfaceCard": "#f0fdf4",
+      "accent": "#166534",
+      "text": "#0a0a0a",
+      "textMuted": "#6b7280",
+      "purpose": "Taiwan & US corporate earnings calls, bilingual transcripts, and investor relation slide matrices"
+    },
+    "vix": {
+      "theme": "Global Volatility & Crash Sentinel",
+      "primary": "#ef4444",
+      "surface": "#ffffff",
+      "surfaceCard": "#0f172a",
+      "accent": "#f97316",
+      "normal": "#10b981",
+      "tracker": "#38bdf8",
+      "text": "#0f172a",
+      "textMuted": "#475569",
+      "purpose": "Real-time monitoring of US VIX, Taiwan TAIFEX VIX, CNN Fear & Greed, and historical crash stress tests"
+    }
+  },
+  "iconography": {
+    "sizes": {
+      "xs": "14px",
+      "sm": "18px",
+      "md": "24px",
+      "lg": "32px",
+      "xl": "48px",
+      "tv": "64px"
+    },
+    "strokes": {
+      "thin": "1.25px",
+      "normal": "1.75px",
+      "bold": "2.25px"
+    },
+    "mascots": {
+      "mkdocs-life": {
+        "name": "Mindful Forest Deer",
+        "id": "icon-deer-life",
+        "significance": "Serenity, reflective reading, natural rhythm"
+      },
+      "google-alert-manager": {
+        "name": "Peregrine Radar Falcon",
+        "id": "icon-falcon-radar",
+        "significance": "High-altitude scan, swift target lock, sharp signal triage"
+      },
+      "youtube-audio-fetch": {
+        "name": "Soundwave Singing Whale",
+        "id": "icon-whale-sonic",
+        "significance": "Deep oceanic audio resonance, harmonic frequency curves"
+      },
+      "mkdocs-investment": {
+        "name": "Geometric Origami Bull & Defensive Bear",
+        "ids": ["icon-bull-fintech", "icon-bear-defense"],
+        "significance": "Upward alpha momentum paired with disciplined downside protection"
+      },
+      "homeassistant-tv": {
+        "name": "Living Room Sentinel Guardian",
+        "id": "icon-sentinel-tv",
+        "significance": "10-foot glanceable home protection, high-contrast silhouette"
+      },
+      "synology-nas": {
+        "name": "Armored Pangolin & Agile Cat",
+        "id": "icon-pangolin-shield",
+        "significance": "Private network defense, impenetrable Docker and storage guardian"
+      },
+      "my-tw-coverage": {
+        "name": "Flapping Research Owlet",
+        "id": "icon-owl-coverage",
+        "significance": "Discerning financial insight, cute and rigorous equity analysis companion"
+      },
+      "investor-conference": {
+        "name": "Sovereign Eagle",
+        "id": "icon-eagle-ir",
+        "significance": "High-altitude institutional foresight, penetrating vision into quarterly earnings calls and guidance"
+      },
+      "vix": {
+        "name": "Black Swan",
+        "id": "icon-swan-vix",
+        "significance": "Classic financial tail risk theory, profound market crash alertness and extreme volatility tracking"
+      }
+    }
+  }
+}
+

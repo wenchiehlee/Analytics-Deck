@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="cat-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <!-- Background disc -->
+  <circle cx="60" cy="48" r="38" fill="#f8fafc"/>
+  <!-- Agile Tail (Curling Up Left) -->
+  <path d="M 38 74 C 28 72 22 62 24 50 C 26 44 32 46 30 52 C 28 58 32 64 42 66 Z" fill="url(#cat-grad)"/>
+  <!-- Cat Body Silhouette -->
+  <path d="M 46 54 C 44 48 50 36 60 36 C 70 36 76 48 74 54 C 76 64 78 74 80 82 C 72 84 50 84 42 82 C 43 74 45 64 46 54 Z" fill="url(#cat-dark)"/>
+  <!-- Pointed Alert Ears -->
+  <polygon points="46,38 42,20 54,32" fill="url(#cat-grad)"/>
+  <polygon points="74,38 78,20 66,32" fill="url(#cat-grad)"/>
+  <!-- Inner Ears Pinkish / Cyan -->
+  <polygon points="46,35 44,24 51,32" fill="#bae6fd"/>
+  <polygon points="74,35 76,24 69,32" fill="#bae6fd"/>
+  <!-- Head Mask & Mystical Eyes -->
+  <ellipse cx="52" cy="45" rx="3.5" ry="4.5" fill="#38bdf8"/>
+  <ellipse cx="68" cy="45" rx="3.5" ry="4.5" fill="#38bdf8"/>
+  <polygon points="52,43 52,47 53,45" fill="#0f172a"/>
+  <polygon points="68,43 68,47 67,45" fill="#0f172a"/>
+  <!-- Nose & Whiskers -->
+  <polygon points="59,51 61,51 60,53" fill="#f472b6"/>
+  <path d="M 48 52 L 36 50 M 48 54 L 35 55 M 72 52 L 84 50 M 72 54 L 85 55" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Chest White Fur Accent -->
+  <path d="M 54 62 L 60 70 L 66 62 Z" fill="#ffffff" opacity="0.8"/>
+  <!-- Brand Typography -->
+  <text x="60" y="104" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="12" fill="#0f172a" letter-spacing="3" text-anchor="middle">CAT</text>
+  <text x="60" y="113" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="5" fill="#0284c7" letter-spacing="1.5" text-anchor="middle">― CLOUD SENTINEL ―</text>
+</svg>

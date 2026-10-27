@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Circular Elephant Lucide Stroke (Ref: VectorStock 3413834 Left) -->
+  <!-- Dome back to trunk base -->
+  <path d="M 4 20.2 A 9.2 9.2 0 1 1 20.2 14.5 C 20.5 17.5 19.8 20.2 18.2 20.2 C 17 20.2 16.6 18.2 16.8 16 C 17 14.8 17.8 14.5 19.5 14.8" />
+  <!-- Belly and feet baseline -->
+  <path d="M 14.2 20.2 H 10.8 A 1.8 1.8 0 0 0 7.2 20.2 H 4" />
+  <!-- Ear Open Arc -->
+  <path d="M 14.6 6.8 A 3.6 3.6 0 1 0 14.6 13.6" />
+  <!-- Eye -->
+  <circle cx="16.5" cy="8.6" r="0.75" fill="currentColor" stroke="none" />
+</svg>

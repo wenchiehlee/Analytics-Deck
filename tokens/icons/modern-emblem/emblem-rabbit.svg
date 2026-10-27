@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  
+  <!-- Green Agile Rabbit (Sovereign Eagle Color Tone - NO background shape) -->
+  <g transform="translate(-34.44, -15.60) scale(0.1850)">
+    <!-- 1. Background Shadow Ear (#14532d) -->
+    <path d="M 564 189 L 564 193 L 566 196 L 568 205 L 574 216 L 572 217 L 591 222 L 607 231 L 639 259 L 660 281 L 675 282 L 667 268 L 662 263 L 663 262 L 657 255 L 647 239 L 626 216 L 623 216 L 622 213 L 615 208 L 600 202 L 598 200 L 595 200 L 591 197 L 588 197 L 577 192 L 570 190 L 568 191 Z" fill="#14532d"/>
+
+    <!-- 2. Shadow Rear Leg (#14532d) -->
+    <path d="M 246 472 L 256 477 L 271 476 L 288 468 L 329 439 L 338 441 L 369 455 L 394 464 L 404 466 L 415 466 L 429 462 L 444 454 L 459 443 L 474 429 L 444 428 L 426 439 L 413 445 L 399 449 L 384 450 L 374 448 L 358 442 L 317 421 L 312 420 L 251 464 L 250 466 L 248 466 L 254 468 L 262 468 L 267 466 L 268 468 L 266 470 L 255 471 L 246 468 Z" fill="#14532d"/>
+
+    <!-- 3. Shadow Front Paw (#14532d) -->
+    <path d="M 543 222 L 567 231 L 587 241 L 592 245 L 594 245 L 617 260 L 644 282 L 647 283 L 623 260 L 597 241 L 588 236 L 565 227 Z" fill="#14532d"/>
+
+    <!-- 4. Main Leaping Rabbit Body (#16a34a) -->
+    <path d="M 779 413 L 777 408 L 771 402 L 762 398 L 750 396 L 723 398 L 677 406 L 645 369 L 645 367 L 653 358 L 654 355 L 650 351 L 651 348 L 654 348 L 659 351 L 672 354 L 699 355 L 711 354 L 719 350 L 723 346 L 727 337 L 719 329 L 720 326 L 727 326 L 711 302 L 699 291 L 689 286 L 671 282 L 658 281 L 631 253 L 609 234 L 598 227 L 587 222 L 570 217 L 527 209 L 528 215 L 540 236 L 562 258 L 573 265 L 595 275 L 642 289 L 643 292 L 637 298 L 628 313 L 622 314 L 611 312 L 596 313 L 575 319 L 570 322 L 555 327 L 538 330 L 516 331 L 486 328 L 461 323 L 441 322 L 433 324 L 425 323 L 425 316 L 419 309 L 408 308 L 403 302 L 401 301 L 398 302 L 392 312 L 391 322 L 388 321 L 387 324 L 388 331 L 391 337 L 397 342 L 397 345 L 387 355 L 375 372 L 360 386 L 344 392 L 329 391 L 310 384 L 303 385 L 287 397 L 243 425 L 242 450 L 257 444 L 302 415 L 308 415 L 349 436 L 371 445 L 384 448 L 399 447 L 415 442 L 443 427 L 446 423 L 449 422 L 457 415 L 470 400 L 476 403 L 496 405 L 540 404 L 569 398 L 583 393 L 590 389 L 595 389 L 621 407 L 632 413 L 646 424 L 661 433 L 671 433 L 686 430 L 738 415 L 752 413 Z" fill="#16a34a"/>
+
+    <!-- 5. Neck Fold Shadow (#14532d) -->
+    <path d="M 656 357 L 648 365 L 646 369 L 658 382 L 671 366 L 667 365 Z" fill="#14532d"/>
+
+    <!-- 6. Inner Ear Lining (#86efac) -->
+    <path d="M 544 224 L 553 238 L 564 249 L 579 259 L 600 269 L 643 282 L 622 265 L 587 242 L 567 232 L 547 224 Z" fill="#86efac"/>
+
+    <!-- 7. Dark Eye & Sparkle Catchlight -->
+    <path d="M 685 308 L 684 310 L 684 317 L 687 320 L 693 320 L 695 319 L 697 316 L 697 311 L 696 309 L 694 307 L 687 307 Z" fill="#14532d"/>
+    <circle cx="693.5" cy="311.5" r="3.5" fill="#ffffff"/>
+
+    <!-- 8. Nose (#14532d) -->
+    <path d="M 720 328 L 722 330 L 722 331 L 728 336 L 729 328 Z" fill="#14532d"/>
+  </g>
+
+  <!-- Brand Typography in Eagle Greens -->
+  <text x="60" y="103" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="11" fill="#14532d" letter-spacing="2.5" text-anchor="middle">SKILL-DECK</text>
+  <text x="60" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="4.6" fill="#16a34a" letter-spacing="1.5" text-anchor="middle">― AGILE SKILLS ―</text>
+</svg>
