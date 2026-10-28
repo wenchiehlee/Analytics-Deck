@@ -6,8 +6,8 @@
     "cron_schedule": "0 */6 * * *",
     "last_deck_sync": "2026-10-27 12:00:00",
     "total_endpoints": 13,
-    "last_sync": "2026-10-28 11:57:40 UTC",
-    "last_sync_local": "2026-10-28 11:57 (4 renewals/day)"
+    "last_sync": "2026-10-28 17:58:44 UTC",
+    "last_sync_local": "2026-10-28 17:58 (4 renewals/day)"
   },
   "endpoints": [
     {
@@ -26,7 +26,7 @@
       "desc_html": "<strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。",
       "analytics": {
         "views_total": 2042,
-        "active_users_30d": "85",
+        "active_users_30d": "80",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -42,7 +42,7 @@
           "project_name": "mkdocs-life",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -77,7 +77,7 @@
           "project_name": "GoogleAlertManager",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -112,7 +112,7 @@
           "project_name": "YoutubeAudio.Fetch",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -147,7 +147,7 @@
           "project_name": "Docker-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -165,7 +165,7 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
       "analytics": {
-        "views_total": 16289,
+        "views_total": 16320,
         "active_users_30d": "3,691",
         "category": "docs",
         "ga4": {
@@ -182,7 +182,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -200,7 +200,7 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
       "analytics": {
-        "views_total": 16289,
+        "views_total": 16320,
         "active_users_30d": "3,691",
         "category": "docs",
         "ga4": {
@@ -217,7 +217,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -252,7 +252,7 @@
           "project_name": "HomeAssistant",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -287,7 +287,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -322,7 +322,7 @@
           "project_name": "My-TW-Coverage",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -357,7 +357,7 @@
           "project_name": "InvestorConference",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -392,7 +392,7 @@
           "project_name": "VIX",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -427,7 +427,7 @@
           "project_name": "Synology-Photo-Tagger",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     },
     {
@@ -445,7 +445,7 @@
       "inline_svg_html": "<svg aria-hidden=\"true\" class=\"ux-icon ux-icon-xl ux-icon-rabbit\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\">\n<path d=\"M13 16a3 3 0 0 1 2.24 5\"></path>\n<path d=\"M18 12h.01\"></path>\n<path d=\"M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3\"></path>\n<path d=\"M20 8.54V4a2 2 0 1 0-4 0v3\"></path>\n<path d=\"M7.612 12.524a3 3 0 1 0-1.6 4.3\"></path>\n</svg>",
       "desc_html": "<strong>宏觀</strong>以跑酷凌空飛躍的敏捷白兔紋章呈現技能探索的品牌入口；<strong>微觀</strong>以跑酷疾速白兔線性圖標標示搜尋、分類與技能瀏覽功能。",
       "analytics": {
-        "views_total": 4,
+        "views_total": 8,
         "active_users_30d": "1",
         "category": "docs",
         "ga4": {
@@ -462,7 +462,7 @@
           "project_name": "Skill-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-10-28 11:57:40 UTC"
+        "last_sync": "2026-10-28 17:58:44 UTC"
       }
     }
   ]
