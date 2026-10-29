@@ -146,6 +146,8 @@ def parse_mascot_cards(html_content: str):
         emblem_alt = emblem_img.get("alt", "") if emblem_img else ""
 
         live_url = lucide_a.get("href", "") if lucide_a else ""
+        if "github.com/wenchiehlee/dockers" in live_url:
+            live_url = "https://wenchiehlee.github.io/dockers/"
         lucide_wrapper_class = " ".join([c for c in (lucide_a.get("class", []) if lucide_a else []) if c != "lucide-tile"])
 
         # Check if lucide has inline svg or use ref

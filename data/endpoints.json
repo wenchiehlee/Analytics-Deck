@@ -123,7 +123,7 @@
       "card_class": "card-docker-whale",
       "lucide_wrapper_class": "wrapper-docker-whale",
       "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#docker-deck",
-      "live_url": "https://github.com/wenchiehlee/dockers",
+      "live_url": "https://wenchiehlee.github.io/dockers/",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-docker-whale.svg",
       "emblem_alt": "Docker-Deck 貨櫃藍鯨 Modern Emblem",
       "symbol_id": "icon-docker-whale",
