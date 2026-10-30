@@ -228,7 +228,7 @@
       "card_class": "card-sentinel",
       "lucide_wrapper_class": "wrapper-sentinel",
       "showcase_url": "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#homeassistant-tv",
-      "live_url": "https://github.com/wenchiehlee-ux/UX-Deck/tree/main/deploy/android-tv",
+      "live_url": "https://wenchiehlee-ux.github.io/UX-Deck/deploy/android-tv/simulator.html",
       "emblem_src": "./tokens/icons/modern-emblem/emblem-dog.svg",
       "emblem_alt": "客廳小管家 Modern Emblem",
       "symbol_id": "icon-sentinel-tv",
