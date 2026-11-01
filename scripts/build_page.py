@@ -4,7 +4,8 @@
 scripts/build_page.py
 Generates the complete, standalone index.html for Analytics-Deck.
 Reads data/endpoints.json and data/svg_symbols.html.
-Ensures 100% visual and color tone consistency with UX-Deck (White Basis, Atmosphere Gradients, Card Shadows).
+Ensures 100% visual, layout, and endpoint consistency with UX-Deck.
+Supports Plan A Smart Conditional Endpoints (3 buttons when pages==live, 4 buttons when pages!=live).
 """
 
 import os
@@ -74,17 +75,50 @@ def generate_card_html(ep: dict) -> str:
     card_class = ep.get("card_class", "card-deer")
     lucide_wrapper = ep.get("lucide_wrapper_class", "wrapper-deer")
 
+    emblem_href = ep.get("emblem_href") or ep.get("emblem_src", "")
+    lucide_href = ep.get("lucide_href") or ep.get("live_url", "#")
+
+    # Smart Conditional Endpoints (Plan A)
+    showcase_url = ep.get("showcase_url", "./showcases.html")
+    repo_url = ep.get("repo_url", "#")
+    pages_url = ep.get("pages_url", "")
+    live_url = ep.get("live_url", "#")
+    separate_live = ep.get("separate_live", False) or (bool(pages_url) and pages_url != live_url)
+
+    ep_count_class = "ep-count-4" if separate_live else "ep-count-3"
+
+    pages_button_html = ""
+    if separate_live and pages_url:
+        pages_button_html = f"""
+        <a class="endpoint-pill ep-pages" href="{pages_url}" rel="noopener noreferrer" target="_blank" title="🚀 造訪 GitHub Pages 靜態專案頁 ↗">
+          <span class="ep-icon">🚀</span>
+          <span class="ep-label">Pages</span>
+        </a>"""
+
+    repo_title = "📦 前往 GitHub 原始碼儲存庫 ↗"
+    live_title = "🌐 造訪線上正式站點 ↗"
+    if "tail28f10" in live_url:
+        live_title = "🌐 前往 Tailscale 私網即時 Web 服務 ↗"
+    elif "synology.me" in live_url:
+        live_title = "🌐 前往 Synology NAS 登入入口 ↗"
+    elif "YoutubeAudio" in live_url or "channel=" in live_url:
+        live_title = "🌐 造訪線上音訊播放正式站點 ↗"
+    elif "dockers" in live_url:
+        live_title = "🌐 前往 Docker 映像與容器目錄 ↗"
+    elif "pages" in live_url or "github.io" in live_url:
+        live_title = "🌐 造訪線上正式站點 (GitHub Pages) ↗"
+
     card_html = f"""
     <div class="mascot-card {card_class}" data-category="{category}">
       <div class="mascot-duo-stage">
-        <a href="{ep.get('showcase_url', '#')}" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看此專案的色彩、字體與介面展示 ↗">
+        <a href="{emblem_href}" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
           <img src="{ep.get('emblem_src', '')}" alt="{ep.get('emblem_alt', '')}" class="emblem-thumb">
           <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
         </a>
         <div class="duo-divider">
           <span class="duo-arrow">⇄</span>
         </div>
-        <a href="{ep.get('live_url', '#')}" class="lucide-tile {lucide_wrapper}" target="_blank" rel="noopener noreferrer" title="造訪 {ep.get('project')} ↗">
+        <a href="{lucide_href}" class="lucide-tile {lucide_wrapper}" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
           {icon_markup}
           <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
         </a>
@@ -94,6 +128,22 @@ def generate_card_html(ep: dict) -> str:
       <div class="mascot-project">{ep.get('project', '')}</div>
       <div class="mascot-desc">
         {ep.get('desc_html', '')}
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints {ep_count_class}">
+        <a class="endpoint-pill ep-showcase" href="{showcase_url}" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="{repo_url}" rel="noopener noreferrer" target="_blank" title="{repo_title}">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>{pages_button_html}
+        <a class="endpoint-pill ep-live" href="{live_url}" rel="noopener noreferrer" target="_blank" title="{live_title}">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
       </div>
 
       <!-- TELEMETRY POD (端點數據觀測艙) -->
@@ -578,11 +628,92 @@ def build_index_html():
     }}
 
     /* ==========================================================================
+       Smart Conditional Endpoints (3 buttons for pages==live, 4 for pages!=live)
+       ========================================================================== */
+    .card-endpoints {{
+      display: grid;
+      gap: 6px;
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: 10px;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-light);
+    }}
+
+    .card-endpoints.ep-count-3 {{
+      grid-template-columns: repeat(3, 1fr);
+    }}
+
+    .card-endpoints.ep-count-4 {{
+      grid-template-columns: repeat(2, 1fr);
+    }}
+
+    .endpoint-pill {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 4px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      background: #f8fafc;
+      color: #334155;
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }}
+
+    .endpoint-pill .ep-icon {{
+      font-size: 0.82rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }}
+
+    .endpoint-pill .ep-label {{
+      line-height: 1.2;
+      white-space: nowrap;
+    }}
+
+    .endpoint-pill:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+      text-decoration: none;
+    }}
+
+    .endpoint-pill.ep-showcase:hover {{
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #1d4ed8;
+    }}
+
+    .endpoint-pill.ep-repo:hover {{
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      color: #0f172a;
+    }}
+
+    .endpoint-pill.ep-pages:hover {{
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #b45309;
+    }}
+
+    .endpoint-pill.ep-live:hover {{
+      background: #ecfdf5;
+      border-color: #6ee7b7;
+      color: #047857;
+    }}
+
+    /* ==========================================================================
        Telemetry Pod (端點觀測艙 - 精緻對齊 UX-Deck 輕量卡片風格)
        ========================================================================== */
     .telemetry-pod {{
       width: 100%;
-      margin-top: auto;
       background: #f8fafc;
       border: 1px solid #edf2f7;
       border-radius: 14px;

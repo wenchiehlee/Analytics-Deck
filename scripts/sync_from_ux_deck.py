@@ -5,13 +5,13 @@ scripts/sync_from_ux_deck.py
 Sync mascot cards and assets from ../UX-Deck into Analytics-Deck.
 
 Features:
-1. Copies newly added modern emblems and lucide SVG icons from ../UX-Deck/tokens/.
-2. Parses the 13+ mascot cards from ../UX-Deck/index.html.
+1. Copies newly added modern emblems, lucide SVG icons, and design tokens from ../UX-Deck/tokens/.
+2. Parses the 13+ mascot cards and Plan A smart endpoints from ../UX-Deck/index.html.
 3. Merges them into data/endpoints.json:
    - Preserves all configured analytics data (views_total, active_users_30d, ga4 settings, amplitude settings).
-   - Updates brand text, mascot names, descriptions, and URLs from UX-Deck.
-   - Adds new endpoints with pending analytics templates if detected.
+   - Updates brand text, mascot names, descriptions, duo-stage SVG links, and 4-tier endpoints (showcase, repo, pages, live).
 4. Extracts SVG symbols from UX-Deck/index.html into data/svg_symbols.html for easy embedding.
+5. Rebuilds index.html and docs/index.html via scripts/build_page.py.
 """
 
 import os
@@ -36,7 +36,7 @@ MASTER_GA4_ACCOUNT = "333479515"
 MASTER_GA4_PROPERTY = "463673189"
 
 def sync_assets():
-    """Copy SVG icons, favicons, and css from UX-Deck."""
+    """Copy SVG icons, favicons, tokens, showcases, and css from UX-Deck."""
     if not UX_DECK_DIR.exists():
         print(f"[!] Warning: UX-Deck directory not found at {UX_DECK_DIR}")
         return
@@ -48,41 +48,24 @@ def sync_assets():
     (TOKENS_DIR / "icons" / "lucide").mkdir(parents=True, exist_ok=True)
     (TOKENS_DIR / "favicons").mkdir(parents=True, exist_ok=True)
 
-    # Copy tokens.css and design-tokens.json
-    for filename in ["tokens.css", "design-tokens.json"]:
-        src = UX_DECK_DIR / "tokens" / filename
-        if src.exists():
-            shutil.copy2(src, TOKENS_DIR / filename)
+    # Sync entire tokens/ directory
+    src_tokens = UX_DECK_DIR / "tokens"
+    if src_tokens.exists():
+        shutil.copytree(src_tokens, TOKENS_DIR, dirs_exist_ok=True)
 
-    # Copy modern emblems
-    src_emblems = UX_DECK_DIR / "tokens" / "icons" / "modern-emblem"
-    if src_emblems.exists():
-        for f in src_emblems.glob("*.svg"):
-            shutil.copy2(f, TOKENS_DIR / "icons" / "modern-emblem" / f.name)
-
-    # Copy lucide icons
-    src_lucide = UX_DECK_DIR / "tokens" / "icons" / "lucide"
-    if src_lucide.exists():
-        for f in src_lucide.glob("*.svg"):
-            shutil.copy2(f, TOKENS_DIR / "icons" / "lucide" / f.name)
-
-    # Copy favicons
-    src_fav = UX_DECK_DIR / "tokens" / "favicons"
-    if src_fav.exists():
-        for f in src_fav.glob("*.*"):
-            shutil.copy2(f, TOKENS_DIR / "favicons" / f.name)
-
+    # Favicons in root and docs
     for fav in ["favicon.svg", "favicon.png", "favicon.ico"]:
         src = UX_DECK_DIR / fav
         if src.exists():
             shutil.copy2(src, BASE_DIR / fav)
             shutil.copy2(src, BASE_DIR / "docs" / fav)
 
-    # Mirror showcases.html to root and docs/
-    showcases_file = UX_DECK_DIR / "showcases.html"
-    if showcases_file.exists():
-        shutil.copy2(showcases_file, BASE_DIR / "showcases.html")
-        shutil.copy2(showcases_file, BASE_DIR / "docs" / "showcases.html")
+    # Mirror showcases.html and preview_animal_styles.html to root and docs/
+    for extra in ["showcases.html", "preview_animal_styles.html"]:
+        src = UX_DECK_DIR / extra
+        if src.exists():
+            shutil.copy2(src, BASE_DIR / extra)
+            shutil.copy2(src, BASE_DIR / "docs" / extra)
 
     # Mirror deploy/ directory if exists
     deploy_dir = UX_DECK_DIR / "deploy"
@@ -137,17 +120,12 @@ def parse_mascot_cards(html_content: str):
         emblem_a = duo_stage.find("a", class_="emblem-tile") if duo_stage else None
         lucide_a = duo_stage.find("a", class_="lucide-tile") if duo_stage else None
 
-        showcase_url = emblem_a.get("href", "") if emblem_a else ""
-        if showcase_url.startswith("./showcases.html") or showcase_url.startswith("showcases.html"):
-            anchor = showcase_url.split("#")[-1] if "#" in showcase_url else ""
-            showcase_url = f"https://wenchiehlee-ux.github.io/UX-Deck/showcases.html#{anchor}" if anchor else "https://wenchiehlee-ux.github.io/UX-Deck/showcases.html"
+        emblem_href = emblem_a.get("href", "") if emblem_a else ""
         emblem_img = emblem_a.find("img") if emblem_a else None
         emblem_src = emblem_img.get("src", "") if emblem_img else ""
         emblem_alt = emblem_img.get("alt", "") if emblem_img else ""
 
-        live_url = lucide_a.get("href", "") if lucide_a else ""
-        if "github.com/wenchiehlee/dockers" in live_url:
-            live_url = "https://wenchiehlee.github.io/dockers/"
+        lucide_href = lucide_a.get("href", "") if lucide_a else ""
         lucide_wrapper_class = " ".join([c for c in (lucide_a.get("class", []) if lucide_a else []) if c != "lucide-tile"])
 
         # Check if lucide has inline svg or use ref
@@ -165,8 +143,27 @@ def parse_mascot_cards(html_content: str):
         desc_el = card.find("div", class_="mascot-desc")
         desc_html = desc_el.decode_contents().strip() if desc_el else ""
 
+        # Smart Conditional Endpoints (Plan A)
+        endpoints_div = card.find("div", class_="card-endpoints")
+        if endpoints_div:
+            showcase_a = endpoints_div.find("a", class_="ep-showcase")
+            repo_a = endpoints_div.find("a", class_="ep-repo")
+            pages_a = endpoints_div.find("a", class_="ep-pages")
+            live_a = endpoints_div.find("a", class_="ep-live")
+
+            showcase_url = showcase_a.get("href", "") if showcase_a else "./showcases.html"
+            repo_url = repo_a.get("href", "") if repo_a else ""
+            pages_url = pages_a.get("href", "") if pages_a else ""
+            live_url = live_a.get("href", "") if live_a else ""
+            separate_live = bool(pages_a)
+        else:
+            showcase_url = "./showcases.html"
+            repo_url = ""
+            pages_url = ""
+            live_url = ""
+            separate_live = False
+
         # Derive slug ID
-        # Extract id from showcase_url (e.g. ./showcases.html#mkdocs-life -> mkdocs-life)
         slug_id = ""
         if "#" in showcase_url:
             slug_id = showcase_url.split("#")[-1]
@@ -176,9 +173,9 @@ def parse_mascot_cards(html_content: str):
             slug_id = f"endpoint-{idx}"
 
         # If duplicate slug (e.g. mkdocs-investment bull vs bear)
-        if "bull" in card_class or "bull" in name_el.text:
+        if "bull" in card_class or "bull" in name:
             slug_id = "mkdocs-investment-bull"
-        elif "bear" in card_class or "bear" in name_el.text:
+        elif "bear" in card_class or "bear" in name:
             slug_id = "mkdocs-investment-bear"
 
         endpoints.append({
@@ -189,9 +186,14 @@ def parse_mascot_cards(html_content: str):
             "card_class": card_class,
             "lucide_wrapper_class": lucide_wrapper_class,
             "showcase_url": showcase_url,
+            "repo_url": repo_url,
+            "pages_url": pages_url,
             "live_url": live_url,
+            "separate_live": separate_live,
+            "emblem_href": emblem_href,
             "emblem_src": emblem_src,
             "emblem_alt": emblem_alt,
+            "lucide_href": lucide_href,
             "symbol_id": symbol_id,
             "inline_svg_html": inline_svg_html,
             "desc_html": desc_html
@@ -202,10 +204,12 @@ def parse_mascot_cards(html_content: str):
 def merge_with_existing(parsed_endpoints):
     """Merge newly parsed UX-Deck endpoints with local analytics configurations."""
     existing_map = {}
+    metadata = {}
     if ENDPOINTS_JSON.exists():
         try:
             with open(ENDPOINTS_JSON, "r", encoding="utf-8") as f:
                 data = json.load(f)
+                metadata = data.get("metadata", {})
                 for item in data.get("endpoints", []):
                     existing_map[item["id"]] = item
             print(f"[*] Loaded {len(existing_map)} existing endpoints from {ENDPOINTS_JSON.name}")
@@ -226,10 +230,10 @@ def merge_with_existing(parsed_endpoints):
         elif any(k in ep_id for k in ["coverage", "conference", "vix"]):
             category = "fintech"
 
-        # Preserve analytics config or initialize (only mkdocs-life has verified numbers; others start as None/---)
+        # Preserve analytics config or initialize
         analytics = existing.get("analytics", {
-            "views_total": 20595 if ep_id == "mkdocs-life" else None,
-            "active_users_30d": "1.2k" if ep_id == "mkdocs-life" else None,
+            "views_total": 2055 if ep_id == "mkdocs-life" else None,
+            "active_users_30d": "85" if ep_id == "mkdocs-life" else None,
             "category": category,
             "ga4": {
                 "enabled": True,
@@ -245,11 +249,14 @@ def merge_with_existing(parsed_endpoints):
                 "project_name": item["project"].split(" ")[0],
                 "dashboard_url": ""
             },
-            "last_sync": "2026-10-27 12:00:00"
+            "last_sync": "2026-11-01 03:49:33 UTC"
         })
 
         item["analytics"] = analytics
         merged.append(item)
+
+    now_str = metadata.get("last_sync", "2026-11-01 03:49:33 UTC")
+    last_sync_local = metadata.get("last_sync_local", "2026-11-01 03:49 (4 renewals/day)")
 
     result = {
         "metadata": {
@@ -257,8 +264,10 @@ def merge_with_existing(parsed_endpoints):
             "source": "UX-Deck (Settled Geometric Mascots)",
             "sync_frequency": "4 renewals per day (every 6 hours)",
             "cron_schedule": "0 */6 * * *",
-            "last_deck_sync": "2026-10-27 12:00:00",
-            "total_endpoints": len(merged)
+            "last_deck_sync": "2026-11-01 12:00:00",
+            "total_endpoints": len(merged),
+            "last_sync": now_str,
+            "last_sync_local": last_sync_local
         },
         "endpoints": merged
     }
@@ -266,6 +275,10 @@ def merge_with_existing(parsed_endpoints):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     with open(ENDPOINTS_JSON, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
+    # Sync docs/data/endpoints.json
+    (BASE_DIR / "docs" / "data").mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ENDPOINTS_JSON, BASE_DIR / "docs" / "data" / "endpoints.json")
 
     print(f"[✓] Successfully merged and wrote {len(merged)} endpoints into {ENDPOINTS_JSON}")
     

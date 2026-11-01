@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Analytics-Deck · 全端點數據觀測中樞</title>
-<!-- Favicon (Identical to UX-Deck) -->
-<link href="./favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="./favicon.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="./favicon.ico" rel="shortcut icon"/>
-<!-- Google Fonts (Exact UX-Deck Typography Stack) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=LXGW+WenKai+TC:wght@300;400;700&amp;family=Noto+Sans+TC:wght@400;500;600;700&amp;family=Noto+Serif+TC:wght@400;600;700;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Quicksand:wght@500;600;700&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Tokens CSS -->
-<link href="./tokens/tokens.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics-Deck · 全端點數據觀測中樞</title>
+  
+  <!-- Favicon (Identical to UX-Deck) -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- Google Fonts (Exact UX-Deck Typography Stack) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=LXGW+WenKai+TC:wght@300;400;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Quicksand:wght@500;600;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tokens CSS -->
+  <link rel="stylesheet" href="./tokens/tokens.css">
+
+  <style>
     /* ==========================================================================
        UX-Deck Aligned Design System & Color Tone
        White Basis & Crisp Light Theme Palette with Radial Atmosphere Gradients
@@ -427,11 +430,92 @@
     }
 
     /* ==========================================================================
+       Smart Conditional Endpoints (3 buttons for pages==live, 4 for pages!=live)
+       ========================================================================== */
+    .card-endpoints {
+      display: grid;
+      gap: 6px;
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: 10px;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .card-endpoints.ep-count-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-endpoints.ep-count-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .endpoint-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 4px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      background: #f8fafc;
+      color: #334155;
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .endpoint-pill .ep-icon {
+      font-size: 0.82rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .endpoint-pill .ep-label {
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .endpoint-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+      text-decoration: none;
+    }
+
+    .endpoint-pill.ep-showcase:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #1d4ed8;
+    }
+
+    .endpoint-pill.ep-repo:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      color: #0f172a;
+    }
+
+    .endpoint-pill.ep-pages:hover {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #b45309;
+    }
+
+    .endpoint-pill.ep-live:hover {
+      background: #ecfdf5;
+      border-color: #6ee7b7;
+      color: #047857;
+    }
+
+    /* ==========================================================================
        Telemetry Pod (端點觀測艙 - 精緻對齊 UX-Deck 輕量卡片風格)
        ========================================================================== */
     .telemetry-pod {
       width: 100%;
-      margin-top: auto;
       background: #f8fafc;
       border: 1px solid #edf2f7;
       border-radius: 14px;
@@ -599,84 +683,12 @@
     footer a:hover {
       text-decoration: underline;
     }
-  
-    /* Smart Conditional Endpoints for Mascot Cards */
-    .card-endpoints {
-      display: grid;
-      gap: 6px;
-      width: 100%;
-      margin-top: auto;
-      margin-bottom: 10px;
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--border-light);
-    }
-    .card-endpoints.ep-count-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .card-endpoints.ep-count-4 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .endpoint-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      padding: 6px 4px;
-      border-radius: 8px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid var(--border-light);
-      background: #ffffff;
-      color: #334155;
-      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
-      user-select: none;
-      -webkit-user-select: none;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-    }
-    .endpoint-pill .ep-icon {
-      font-size: 0.8rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .endpoint-pill .ep-label {
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-    .endpoint-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
-      text-decoration: none;
-    }
-    .endpoint-pill.ep-showcase:hover {
-      background: #eff6ff;
-      border-color: #93c5fd;
-      color: #1d4ed8;
-    }
-    .endpoint-pill.ep-repo:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-      color: #0f172a;
-    }
-    .endpoint-pill.ep-pages:hover {
-      background: #fffbeb;
-      border-color: #fde68a;
-      color: #b45309;
-    }
-    .endpoint-pill.ep-live:hover {
-      background: #ecfdf5;
-      border-color: #6ee7b7;
-      color: #047857;
-    }
-    .telemetry-pod {
-      margin-top: 0 !important;
-    }
-</style>
+  </style>
 </head>
 <body>
-<!-- SVG Symbols Definition (From UX-Deck) -->
-<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- SVG Symbols Definition (From UX-Deck) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <symbol fill="none" id="icon-deer-life" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
 <path d="M3 3c0 2 1 3 4 3c2 0 3 1 3 3"></path>
 <path d="M21 3c0 2-1 3-4 3c-2 0-3 .3-3 3"></path>
@@ -769,861 +781,960 @@
 <circle cx="18.5" cy="14.2" fill="currentColor" r=".55" stroke="none"></circle>
 </symbol>
 </svg>
-<div class="container">
-<!-- STUDIO HEADER (Aligned with UX-Deck) -->
-<header>
-<div class="header-badge">🏛️ Modern Emblem × ⚡ Lucide 雙軌體系 · 全端點遙測</div>
-<h1>Analytics-Deck</h1>
-<div class="subtitle">
+
+  <div class="container">
+    
+    <!-- STUDIO HEADER (Aligned with UX-Deck) -->
+    <header>
+      <div class="header-badge">🏛️ Modern Emblem × ⚡ Lucide 雙軌體系 · 全端點遙測</div>
+      <h1>Analytics-Deck</h1>
+      <div class="subtitle">
         以極簡白底（White Basis）為視覺根基，結合十三隻專案象徵幾何吉祥物與全端點觀測艙。以 Google Analytics 4（Property: <code>p463673189</code>）作為全域流量基底，融合 Amplitude 事件行為觀測，落實「宏觀品牌勳章 × 微觀線性介面 × 實時數據監測」之完整閉環。
       </div>
-<div class="telemetry-nav-strip">
-<span class="live-url-pill">
-<span class="pill-pulse"></span> 數據同步：每日 4 次（每 6 小時排程）
+
+      <div class="telemetry-nav-strip">
+        <span class="live-url-pill">
+          <span class="pill-pulse"></span> 數據同步：每日 4 次（每 6 小時排程）
         </span>
-<a class="live-url-pill" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 GA4 主控台 ↗">
+        <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" target="_blank" rel="noopener noreferrer" class="live-url-pill" title="開啟 GA4 主控台 ↗">
           📈 GA4 總覽：Property <code>p463673189</code> ↗
         </a>
-<a class="live-url-pill" href="https://wenchiehlee-ux.github.io/UX-Deck/" rel="noopener noreferrer" target="_blank" title="造訪 UX-Deck 品牌設計中心 ↗">
+        <a href="https://wenchiehlee-ux.github.io/UX-Deck/" target="_blank" rel="noopener noreferrer" class="live-url-pill" title="造訪 UX-Deck 品牌設計中心 ↗">
           🎨 造訪 UX-Deck ↗
         </a>
-<span class="live-url-pill" style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #64748b;">
-          最後同步：2026-11-01 03:49 (4 renewals/day)
+        <span class="live-url-pill" style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #64748b;">
+          最後同步：2026-11-01 19:59 (4 renewals/day)
         </span>
-</div>
-</header>
-<!-- CATEGORY FILTER BUTTONS -->
-<div class="filter-bar">
-<button class="filter-btn active" data-filter="all">全部端點 (13)</button>
-<button class="filter-btn" data-filter="docs">生活日誌與知識庫</button>
-<button class="filter-btn" data-filter="saas">SaaS 與應用工具</button>
-<button class="filter-btn" data-filter="fintech">投資與量化研報</button>
-<button class="filter-btn" data-filter="infra">基礎設施與 NAS</button>
-</div>
-<!-- MASCOT CARDS GRID -->
-<div class="mascot-grid">
-<div class="mascot-card card-deer" data-category="docs">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-deer.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何林鹿 🦌 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="幾何林鹿 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-deer.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-deer" href="./tokens/icons/lucide/lucide-deer.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何林鹿 🦌 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-deer">
-<use href="#icon-deer-life"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">幾何林鹿 🦌</div>
-<div class="mascot-project">mkdocs-life (生活日誌)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
+    </header>
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-life" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-life" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-life/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">2,055</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">85</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-falcon" data-category="saas">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-falcon.svg" rel="noopener noreferrer" target="_blank" title="檢視 破曉警報鳥 🐦 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="破曉警報鳥 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-falcon.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-falcon" href="./tokens/icons/lucide/lucide-bird.svg" rel="noopener noreferrer" target="_blank" title="檢視 破曉警報鳥 🐦 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-falcon">
-<use href="#icon-falcon-radar"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">破曉警報鳥 🐦</div>
-<div class="mascot-project">GoogleAlertManager (SaaS)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以破曉知更旭日圓盤作為系統門面；<strong>微觀</strong>以圓滾高翹尾飛鳥作為情報雷達與通報 Chip 線性標誌。
+    <!-- CATEGORY FILTER BUTTONS -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">全部端點 (13)</button>
+      <button class="filter-btn" data-filter="docs">生活日誌與知識庫</button>
+      <button class="filter-btn" data-filter="saas">SaaS 與應用工具</button>
+      <button class="filter-btn" data-filter="fintech">投資與量化研報</button>
+      <button class="filter-btn" data-filter="infra">基礎設施與 NAS</button>
+    </div>
+
+    <!-- MASCOT CARDS GRID -->
+    <div class="mascot-grid">
+      
+    <div class="mascot-card card-deer" data-category="docs">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-deer.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-deer.svg" alt="幾何林鹿 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-deer.svg" class="lucide-tile wrapper-deer" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-deer">
+          <use href="#icon-deer-life"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#google-alert-manager" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/GoogleAlertManager" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/GoogleAlertManager/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">---</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">---</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-whale" data-category="saas">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-whale.svg" rel="noopener noreferrer" target="_blank" title="檢視 聲波座頭鯨 🐋 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="聲波座頭鯨 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-whale.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-whale" href="./tokens/icons/lucide/lucide-whale.svg" rel="noopener noreferrer" target="_blank" title="檢視 聲波座頭鯨 🐋 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-whale">
-<use href="#icon-whale-sonic"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">聲波座頭鯨 🐋</div>
-<div class="mascot-project">YoutubeAudio.Fetch (影音 Podcast 萃取)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以深海翻騰水花躍鯨作為播放器封面；<strong>微觀</strong>以聲波噴泉座頭鯨作為聲學控制與音軌切換指示。
+      <div class="mascot-name">幾何林鹿 🦌</div>
+      <div class="mascot-project">mkdocs-life (生活日誌)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#youtube-audio-fetch" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/ZhongZheng782/YoutubeAudio.Fetch" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://zhongzheng782.github.io/YoutubeAudio.Fetch/?channel=yutinghaofinance" rel="noopener noreferrer" target="_blank" title="造訪線上音訊播放正式站點 ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">---</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">---</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-docker-whale" data-category="infra">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-docker-whale.svg" rel="noopener noreferrer" target="_blank" title="檢視 貨櫃藍鯨 🐳 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="Docker-Deck 貨櫃藍鯨 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-docker-whale.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-docker-whale" href="./tokens/icons/lucide/lucide-docker-whale.svg" rel="noopener noreferrer" target="_blank" title="檢視 貨櫃藍鯨 🐳 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-docker">
-<use href="#icon-docker-whale"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">貨櫃藍鯨 (Container Blue Whale) 🐳</div>
-<div class="mascot-project">Docker-Deck (Docker 映像目錄)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以 Docker 藍鯨承載貨櫃作為品牌紋章；<strong>微觀</strong>以貨櫃藍鯨線性圖標連結映像探索與容器啟動。
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-life" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-life" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-life/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#docker-deck" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/dockers" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://github.com/wenchiehlee/dockers" rel="noopener noreferrer" target="_blank" title="造訪 Docker-Deck 映像目錄 ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">5</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">1</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-bull" data-category="docs">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-bull.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何狂牛 🐂 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="幾何狂牛 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-bull.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-bull" href="./tokens/icons/lucide/lucide-bull.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何狂牛 🐂 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-bull">
-<use href="#icon-bull-fintech"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">幾何狂牛 🐂</div>
-<div class="mascot-project">mkdocs-investment (多頭攻堅)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">2,055</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">85</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
+    </div>
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-investment" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-investment" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-investment/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">16,746</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">4,069</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-bear" data-category="docs">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-bear.svg" rel="noopener noreferrer" target="_blank" title="檢視 北歐守護熊 🐻 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="北歐守護熊 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-bear.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-bear" href="./tokens/icons/lucide/lucide-bear.svg" rel="noopener noreferrer" target="_blank" title="檢視 北歐守護熊 🐻 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-bear">
-<use href="#icon-bear-defense"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">北歐守護熊 🐻</div>
-<div class="mascot-project">mkdocs-investment (防禦避險)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。
+
+    <div class="mascot-card card-falcon" data-category="saas">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-falcon.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-falcon.svg" alt="破曉警報鳥 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-bird.svg" class="lucide-tile wrapper-falcon" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-falcon">
+          <use href="#icon-falcon-radar"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-investment" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-investment" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-investment/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">16,746</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">4,069</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-sentinel" data-category="infra">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-dog.svg" rel="noopener noreferrer" target="_blank" title="檢視 客廳小管家 柴柴 🐕 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="客廳小管家 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-dog.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-sentinel" href="./tokens/icons/lucide/lucide-dog.svg" rel="noopener noreferrer" target="_blank" title="檢視 客廳小管家 柴柴 🐕 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-sentinel">
-<use href="#icon-sentinel-tv"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">客廳小管家 柴柴 🐕</div>
-<div class="mascot-project">HomeAssistant (Android TV)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以忠誠巡守柴柴作為電視客廳情境總覽封面；<strong>微觀</strong>以豎耳線性犬首標記智慧家庭通知與即時監控。
+      <div class="mascot-name">破曉警報鳥 🐦</div>
+      <div class="mascot-project">GoogleAlertManager (SaaS)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以破曉知更旭日圓盤作為系統門面；<strong>微觀</strong>以圓滾高翹尾飛鳥作為情報雷達與通報 Chip 線性標誌。
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#homeassistant-tv" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-ux/UX-Deck" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://github.com/wenchiehlee-ux/UX-Deck/tree/main/deploy/android-tv" rel="noopener noreferrer" target="_blank" title="檢視 Android TV 部署方案與設定 ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">3</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">1</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-pangolin" data-category="infra">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-cat.svg" rel="noopener noreferrer" target="_blank" title="檢視 敏捷守護貓 🐱 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="敏捷守護貓 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-cat.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-pangolin" href="./tokens/icons/lucide/lucide-cat.svg" rel="noopener noreferrer" target="_blank" title="檢視 敏捷守護貓 🐱 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-pangolin">
-<use href="#icon-pangolin-shield"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">敏捷守護貓 🐱</div>
-<div class="mascot-project">wenchiehlee.quickconnect.to (Synology NAS)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以幾何守護者之姿作為私有雲系統門面；<strong>微觀</strong>以三角耳幾何貓首標示 Docker 容器、Tailscale 與連線狀態。
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#google-alert-manager" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/GoogleAlertManager" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/GoogleAlertManager/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#synology-nas" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/wenchiehlee.quickconnect.to" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee.synology.me" rel="noopener noreferrer" target="_blank" title="造訪 Synology NAS 私有雲端中心 (DDNS) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">747</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">2</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-owl" data-category="fintech">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-owl.svg" rel="noopener noreferrer" target="_blank" title="檢視 拍拍翅萌萌鴞 🦉 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="拍拍翅萌萌鴞 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-owl.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-owl" href="./tokens/icons/lucide/lucide-owl.svg" rel="noopener noreferrer" target="_blank" title="檢視 拍拍翅萌萌鴞 🦉 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-owl">
-<use href="#icon-owl-coverage"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">拍拍翅萌萌鴞 🦉</div>
-<div class="mascot-project">My-TW-Coverage (台股個股覆蓋)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以治癒系萌鴞作為個股研報官方認證印鑑；<strong>微觀</strong>以大眼線性貓頭鷹作為研究評等與安全邊際欄位圖標。
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">---</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">---</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
+    </div>
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#tw-coverage" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/My-TW-Coverage" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/My-TW-Coverage/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">55</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">2</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-eagle" data-category="fintech">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-eagle.svg" rel="noopener noreferrer" target="_blank" title="檢視 領航雄鷹 🦅 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="領航雄鷹 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-eagle.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-eagle" href="./tokens/icons/lucide/lucide-eagle.svg" rel="noopener noreferrer" target="_blank" title="檢視 領航雄鷹 🦅 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-eagle">
-<use href="#icon-eagle-ir"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">領航雄鷹 🦅</div>
-<div class="mascot-project">InvestorConference (法人說明會與 IR 庫)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以展翅高飛的綠色領航雄鷹紋章作為法說會資料庫門面；<strong>微觀</strong>以銳利幾何鷹影作為重要事件與高階展望標籤。
+
+    <div class="mascot-card card-whale" data-category="saas">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-whale.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-whale.svg" alt="聲波座頭鯨 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-whale.svg" class="lucide-tile wrapper-whale" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-whale">
+          <use href="#icon-whale-sonic"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#investor-conference" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/InvestorConference" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/InvestorConference/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">---</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">---</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-swan" data-category="fintech">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-swan.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何黑天鵝 🦢 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="幾何黑天鵝 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-swan.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-swan" href="./tokens/icons/lucide/lucide-swan.svg" rel="noopener noreferrer" target="_blank" title="檢視 幾何黑天鵝 🦢 Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-swan">
-<use href="#icon-swan-vix"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">幾何黑天鵝 🦢</div>
-<div class="mascot-project">VIX (全球波動率與黑天鵝雷達)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以幾何黑天鵝極端風險徽章作為雷達封面；<strong>微觀</strong>以高對比曜石天鵝作為市場恐慌 30 閾值與壓力測試標記。
+      <div class="mascot-name">聲波座頭鯨 🐋</div>
+      <div class="mascot-project">YoutubeAudio.Fetch (影音 Podcast 萃取)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以深海翻騰水花躍鯨作為播放器封面；<strong>微觀</strong>以聲波噴泉座頭鯨作為聲學控制與音軌切換指示。
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#vix" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/VIX" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/VIX/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">---</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">---</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-squirrel" data-category="saas">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-squirrel.svg" rel="noopener noreferrer" target="_blank" title="檢視 採集松鼠 🐿️ Modern Emblem 官方紋章向量檔 ↗">
-<img alt="採集松鼠 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-squirrel.svg"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-squirrel" href="./tokens/icons/lucide/lucide-squirrel.svg" rel="noopener noreferrer" target="_blank" title="檢視 採集松鼠 🐿️ Lucide 介面線性圖標向量檔 ↗">
-<svg class="ux-icon ux-icon-xl ux-icon-squirrel">
-<use href="#icon-squirrel-tagger"></use>
-</svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">採集松鼠 🐿️</div>
-<div class="mascot-project">Synology-Photo-Tagger (相片智慧標籤)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以抱握松果的靈巧松鼠作為相片資產徽章；<strong>微觀</strong>以大尾線性松鼠標記 AI 物件辨識、場景分類與 EXIF/XMP 智慧標籤入庫。
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#youtube-audio-fetch" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/ZhongZheng782/YoutubeAudio.Fetch" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://zhongzheng782.github.io/YoutubeAudio.Fetch/?channel=yutinghaofinance" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上音訊播放正式站點 ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-4">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#synology-photo-tagger" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/ZhongZheng782/Synology-Photo-Tagger" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-pages" href="https://zhongzheng782.github.io/Synology-Photo-Tagger/" rel="noopener noreferrer" target="_blank" title="🚀 造訪 GitHub Pages 靜態專案頁 ↗">
-<span class="ep-icon">🚀</span>
-<span class="ep-label">Pages</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://newton.tail28f10.ts.net:15056/" rel="noopener noreferrer" target="_blank" title="造訪 Tailscale 私網運行之 AI 相片標籤實體服務 ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">6</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">1</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-<div class="mascot-card card-rabbit" data-category="docs">
-<div class="mascot-duo-stage">
-<a class="emblem-tile" href="./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit" rel="noopener noreferrer" target="_blank" title="檢視 敏捷白兔 🐇 Modern Emblem 官方紋章向量檔 ↗">
-<img alt="敏捷白兔 Modern Emblem" class="emblem-thumb" src="./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit"/>
-<span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
-</a>
-<div class="duo-divider">
-<span class="duo-arrow">⇄</span>
-</div>
-<a class="lucide-tile wrapper-rabbit" href="./tokens/icons/lucide/lucide-rabbit.svg" rel="noopener noreferrer" target="_blank" title="檢視 敏捷白兔 🐇 Lucide 介面線性圖標向量檔 ↗">
-<svg aria-hidden="true" class="ux-icon ux-icon-xl ux-icon-rabbit" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">---</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">---</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-docker-whale" data-category="infra">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-docker-whale.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-docker-whale.svg" alt="Docker-Deck 貨櫃藍鯨 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-docker-whale.svg" class="lucide-tile wrapper-docker-whale" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-docker">
+          <use href="#icon-docker-whale"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">貨櫃藍鯨 (Container Blue Whale) 🐳</div>
+      <div class="mascot-project">Docker-Deck (Docker 映像目錄)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以 Docker 藍鯨承載貨櫃作為品牌紋章；<strong>微觀</strong>以貨櫃藍鯨線性圖標連結映像探索與容器啟動。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#docker-deck" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/dockers" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://github.com/wenchiehlee/dockers" rel="noopener noreferrer" target="_blank" title="🌐 前往 Docker 映像與容器目錄 ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">5</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">1</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-bull" data-category="docs">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-bull.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-bull.svg" alt="幾何狂牛 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-bull.svg" class="lucide-tile wrapper-bull" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-bull">
+          <use href="#icon-bull-fintech"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">幾何狂牛 🐂</div>
+      <div class="mascot-project">mkdocs-investment (多頭攻堅)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-investment" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-investment" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-investment/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">16,746</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">4,069</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-bear" data-category="docs">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-bear.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-bear.svg" alt="北歐守護熊 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-bear.svg" class="lucide-tile wrapper-bear" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-bear">
+          <use href="#icon-bear-defense"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">北歐守護熊 🐻</div>
+      <div class="mascot-project">mkdocs-investment (防禦避險)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#mkdocs-investment" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/mkdocs-investment" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/mkdocs-investment/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">16,746</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">4,069</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-sentinel" data-category="infra">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-dog.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-dog.svg" alt="客廳小管家 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-dog.svg" class="lucide-tile wrapper-sentinel" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-sentinel">
+          <use href="#icon-sentinel-tv"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">客廳小管家 柴柴 🐕</div>
+      <div class="mascot-project">HomeAssistant (Android TV)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以忠誠巡守柴柴作為電視客廳情境總覽封面；<strong>微觀</strong>以豎耳線性犬首標記智慧家庭通知與即時監控。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#homeassistant-tv" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-ux/UX-Deck" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://github.com/wenchiehlee-ux/UX-Deck/tree/main/deploy/android-tv" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">3</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">1</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-pangolin" data-category="infra">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-cat.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-cat.svg" alt="敏捷守護貓 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-cat.svg" class="lucide-tile wrapper-pangolin" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-pangolin">
+          <use href="#icon-pangolin-shield"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">敏捷守護貓 🐱</div>
+      <div class="mascot-project">wenchiehlee.quickconnect.to (Synology NAS)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以幾何守護者之姿作為私有雲系統門面；<strong>微觀</strong>以三角耳幾何貓首標示 Docker 容器、Tailscale 與連線狀態。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#synology-nas" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/wenchiehlee.quickconnect.to" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee.synology.me" rel="noopener noreferrer" target="_blank" title="🌐 前往 Synology NAS 登入入口 ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">747</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">2</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-owl" data-category="fintech">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-owl.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-owl.svg" alt="拍拍翅萌萌鴞 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-owl.svg" class="lucide-tile wrapper-owl" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-owl">
+          <use href="#icon-owl-coverage"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">拍拍翅萌萌鴞 🦉</div>
+      <div class="mascot-project">My-TW-Coverage (台股個股覆蓋)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以治癒系萌鴞作為個股研報官方認證印鑑；<strong>微觀</strong>以大眼線性貓頭鷹作為研究評等與安全邊際欄位圖標。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#tw-coverage" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/My-TW-Coverage" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/My-TW-Coverage/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">55</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">2</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-eagle" data-category="fintech">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-eagle.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-eagle.svg" alt="領航雄鷹 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-eagle.svg" class="lucide-tile wrapper-eagle" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-eagle">
+          <use href="#icon-eagle-ir"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">領航雄鷹 🦅</div>
+      <div class="mascot-project">InvestorConference (法人說明會與 IR 庫)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以展翅高飛的綠色領航雄鷹紋章作為法說會資料庫門面；<strong>微觀</strong>以銳利幾何鷹影作為重要事件與高階展望標籤。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#investor-conference" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/InvestorConference" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/InvestorConference/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">---</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">---</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-swan" data-category="fintech">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-swan.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-swan.svg" alt="幾何黑天鵝 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-swan.svg" class="lucide-tile wrapper-swan" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-swan">
+          <use href="#icon-swan-vix"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">幾何黑天鵝 🦢</div>
+      <div class="mascot-project">VIX (全球波動率與黑天鵝雷達)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以幾何黑天鵝極端風險徽章作為雷達封面；<strong>微觀</strong>以高對比曜石天鵝作為市場恐慌 30 閾值與壓力測試標記。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#vix" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee-money/VIX" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee-money.github.io/VIX/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">---</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">---</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-squirrel" data-category="saas">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-squirrel.svg" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-squirrel.svg" alt="採集松鼠 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-squirrel.svg" class="lucide-tile wrapper-squirrel" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg class="ux-icon ux-icon-xl ux-icon-squirrel">
+          <use href="#icon-squirrel-tagger"></use>
+        </svg>
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
+      </div>
+
+      <div class="mascot-name">採集松鼠 🐿️</div>
+      <div class="mascot-project">Synology-Photo-Tagger (相片智慧標籤)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以抱握松果的靈巧松鼠作為相片資產徽章；<strong>微觀</strong>以大尾線性松鼠標記 AI 物件辨識、場景分類與 EXIF/XMP 智慧標籤入庫。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-4">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#synology-photo-tagger" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/ZhongZheng782/Synology-Photo-Tagger" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-pages" href="https://zhongzheng782.github.io/Synology-Photo-Tagger/" rel="noopener noreferrer" target="_blank" title="🚀 造訪 GitHub Pages 靜態專案頁 ↗">
+          <span class="ep-icon">🚀</span>
+          <span class="ep-label">Pages</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://newton.tail28f10.ts.net:15056/" rel="noopener noreferrer" target="_blank" title="🌐 前往 Tailscale 私網即時 Web 服務 ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">6</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">1</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mascot-card card-rabbit" data-category="docs">
+      <div class="mascot-duo-stage">
+        <a href="./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit" class="emblem-tile" target="_blank" rel="noopener noreferrer" title="查看官方紋章向量 SVG 原始碼 ↗">
+          <img src="./tokens/icons/modern-emblem/emblem-rabbit.svg?v=green-eagle-rabbit" alt="敏捷白兔 Modern Emblem" class="emblem-thumb">
+          <span class="badge-role-tag emblem-tag">🏛️ 官方紋章</span>
+        </a>
+        <div class="duo-divider">
+          <span class="duo-arrow">⇄</span>
+        </div>
+        <a href="./tokens/icons/lucide/lucide-rabbit.svg" class="lucide-tile wrapper-rabbit" target="_blank" rel="noopener noreferrer" title="查看線性圖標向量 SVG 原始碼 ↗">
+          <svg aria-hidden="true" class="ux-icon ux-icon-xl ux-icon-rabbit" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
 <path d="M13 16a3 3 0 0 1 2.24 5"></path>
 <path d="M18 12h.01"></path>
 <path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"></path>
 <path d="M20 8.54V4a2 2 0 1 0-4 0v3"></path>
 <path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"></path>
 </svg>
-<span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
-</a>
-</div>
-<div class="mascot-name">敏捷白兔 (Agile Rabbit) 🐇</div>
-<div class="mascot-project">Skill-Deck (共享技能登錄庫)</div>
-<div class="mascot-desc">
-<strong>宏觀</strong>以跑酷凌空飛躍的敏捷白兔紋章呈現技能探索的品牌入口；<strong>微觀</strong>以跑酷疾速白兔線性圖標標示搜尋、分類與技能瀏覽功能。
+          <span class="badge-role-tag lucide-tag">⚡ 介面線性</span>
+        </a>
       </div>
-<!-- TELEMETRY POD (端點數據觀測艙) -->
 
-<div class="card-endpoints ep-count-3">
-<a class="endpoint-pill ep-showcase" href="./showcases.html#skill-deck" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
-<span class="ep-icon">🎨</span>
-<span class="ep-label">Showcase</span>
-</a>
-<a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/skills" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
-<span class="ep-icon">📦</span>
-<span class="ep-label">Repo</span>
-</a>
-<a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/skills/" rel="noopener noreferrer" target="_blank" title="造訪線上正式站點 (GitHub Pages) ↗">
-<span class="ep-icon">🌐</span>
-<span class="ep-label">Live</span>
-</a>
-</div>
-<div class="telemetry-pod">
-<div class="telemetry-stat-card">
-<div class="telemetry-stat-item">
-<span class="stat-label">本站訪問量</span>
-<strong class="stat-val stat-views">9</strong>
-</div>
-<div class="stat-divider"></div>
-<div class="telemetry-stat-item">
-<span class="stat-label">30D 月活躍</span>
-<strong class="stat-val stat-users">1</strong>
-</div>
-</div>
-<div class="telemetry-actions">
-<a class="telemetry-btn btn-ga" href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&amp;collectionId=user" rel="noopener noreferrer" target="_blank" title="開啟 Google Analytics 4 主控台報表 ↗">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Google Analytics</span>
-<span class="btn-arrow">↗</span>
-</a>
-<span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
-<svg class="btn-dot-icon" height="6" viewbox="0 0 8 8" width="6"><circle cx="4" cy="4" fill="currentColor" r="3"></circle></svg>
-<span>Amplitude (規劃中)</span>
-</span>
-</div>
-</div>
-</div>
-</div>
-<!-- STUDIO FOOTER -->
-<footer>
-<div>Analytics-Deck · 全端點數據觀測中樞 · 品牌系統同源於 <a href="https://wenchiehlee-ux.github.io/UX-Deck/" target="_blank">UX-Deck</a></div>
-<div style="font-size: 0.78rem;">數據管道：GA4 Data API 每日 4 次自動定時快照 · 零延遲純靜態展示</div>
-</footer>
-</div>
-<script>
+      <div class="mascot-name">敏捷白兔 (Agile Rabbit) 🐇</div>
+      <div class="mascot-project">Skill-Deck (共享技能登錄庫)</div>
+      <div class="mascot-desc">
+        <strong>宏觀</strong>以跑酷凌空飛躍的敏捷白兔紋章呈現技能探索的品牌入口；<strong>微觀</strong>以跑酷疾速白兔線性圖標標示搜尋、分類與技能瀏覽功能。
+      </div>
+
+      <!-- SMART CONDITIONAL ENDPOINTS (PLAN A) -->
+      <div class="card-endpoints ep-count-3">
+        <a class="endpoint-pill ep-showcase" href="./showcases.html#skill-deck" rel="noopener noreferrer" target="_blank" title="🎨 查看 UX-Deck 設計展示（色彩光譜、字體與元件）">
+          <span class="ep-icon">🎨</span>
+          <span class="ep-label">Showcase</span>
+        </a>
+        <a class="endpoint-pill ep-repo" href="https://github.com/wenchiehlee/skills" rel="noopener noreferrer" target="_blank" title="📦 前往 GitHub 原始碼儲存庫 ↗">
+          <span class="ep-icon">📦</span>
+          <span class="ep-label">Repo</span>
+        </a>
+        <a class="endpoint-pill ep-live" href="https://wenchiehlee.github.io/skills/" rel="noopener noreferrer" target="_blank" title="🌐 造訪線上正式站點 (GitHub Pages) ↗">
+          <span class="ep-icon">🌐</span>
+          <span class="ep-label">Live</span>
+        </a>
+      </div>
+
+      <!-- TELEMETRY POD (端點數據觀測艙) -->
+      <div class="telemetry-pod">
+        <div class="telemetry-stat-card">
+          <div class="telemetry-stat-item">
+            <span class="stat-label">本站訪問量</span>
+            <strong class="stat-val stat-views">9</strong>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="telemetry-stat-item">
+            <span class="stat-label">30D 月活躍</span>
+            <strong class="stat-val stat-users">1</strong>
+          </div>
+        </div>
+
+        <div class="telemetry-actions">
+          <a href="https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user" class="telemetry-btn btn-ga" target="_blank" rel="noopener noreferrer" title="開啟 Google Analytics 4 主控台報表 ↗">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Google Analytics</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <span class="telemetry-btn btn-amplitude-disabled" title="此端點尚未配置 Amplitude 事件追蹤">
+            <svg class="btn-dot-icon" viewBox="0 0 8 8" width="6" height="6"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>
+            <span>Amplitude (規劃中)</span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- STUDIO FOOTER -->
+    <footer>
+      <div>Analytics-Deck · 全端點數據觀測中樞 · 品牌系統同源於 <a href="https://wenchiehlee-ux.github.io/UX-Deck/" target="_blank">UX-Deck</a></div>
+      <div style="font-size: 0.78rem;">數據管道：GA4 Data API 每日 4 次自動定時快照 · 零延遲純靜態展示</div>
+    </footer>
+
+  </div>
+
+  <script>
     // Client-side Category Filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
