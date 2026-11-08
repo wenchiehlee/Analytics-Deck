@@ -203,7 +203,7 @@ def build_index_html():
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analytics-Deck · 全端點數據觀測中樞</title>
   
-  <!-- Favicon (Identical to UX-Deck) -->
+  <!-- Analytics-Deck 📊 Favicon -->
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
   <link rel="shortcut icon" href="./favicon.ico">
