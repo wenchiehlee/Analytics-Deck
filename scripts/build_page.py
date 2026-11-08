@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 ENDPOINTS_JSON = DATA_DIR / "endpoints.json"
 SYMBOLS_FILE = DATA_DIR / "svg_symbols.html"
+STYLE_FILE = DATA_DIR / "page_style.css"
 OUTPUT_HTML = BASE_DIR / "index.html"
 DOCS_DIR = BASE_DIR / "docs"
 DOCS_HTML = DOCS_DIR / "index.html"
@@ -190,6 +191,11 @@ def build_index_html():
         with open(SYMBOLS_FILE, "r", encoding="utf-8") as f:
             symbols_html = f.read()
 
+    page_styles = ""
+    if STYLE_FILE.exists():
+        with open(STYLE_FILE, "r", encoding="utf-8") as f:
+            page_styles = f.read()
+
     endpoints = data.get("endpoints", [])
     meta = data.get("metadata", {})
     last_sync = meta.get("last_sync_local", "每日 4 次自動同步中")
@@ -216,7 +222,11 @@ def build_index_html():
   <!-- Tokens CSS -->
   <link rel="stylesheet" href="./tokens/tokens.css">
 
-  </head>
+  <style>
+{page_styles}
+  </style>
+
+</head>
 <body>
 
   <!-- SVG Symbols Definition (From UX-Deck) -->
