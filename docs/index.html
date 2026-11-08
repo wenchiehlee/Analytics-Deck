@@ -2099,16 +2099,16 @@
           <div class="deck-card-head">
             <span class="deck-avatar">⚙️</span>
             <span class="deck-card-title">Pipeline-Deck</span>
-            <span class="deck-tag">Workflow</span>
+            <span class="deck-tag" style="background:#f5f3ff; color:#7c3aed; border-color:#ddd6fe;">227/75/0/1</span>
           </div>
           <div class="deck-numbers-compact">
             <div class="stat-line">
-              <span class="stat-lbl">自動化架構</span>
-              <span class="stat-val">CI/CD Engine</span>
+              <span class="stat-lbl">北極星指標</span>
+              <span class="stat-val" style="color:#7c3aed;">227/75/0/1</span>
             </div>
             <div class="stat-line">
-              <span class="stat-lbl">排程調度</span>
-              <span class="stat-val">GitOps · Actions</span>
+              <span class="stat-lbl">CI/CD 規模</span>
+              <span class="stat-val">227 WFs · 75 Repos</span>
             </div>
           </div>
           <div class="deck-actions-compact">
@@ -2239,6 +2239,22 @@
         });
       });
     });
+  </script>
+  <!-- Deck Family Auto-Hydration Script (Live Sync 227/75/0/1) -->
+  <script>
+    (function() {
+      fetch('https://wenchiehlee.github.io/Pipeline-Deck/data/kpi.json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var card = document.querySelector('.theme-pipeline');
+          if (!card || !d || !d.card) return;
+          var tag = card.querySelector('.deck-tag');
+          if (tag && d.card.tag) tag.textContent = d.card.tag;
+          var vals = card.querySelectorAll('.stat-val');
+          if (vals[0] && d.card.stat1) vals[0].textContent = d.card.stat1.value;
+          if (vals[1] && d.card.stat2) vals[1].textContent = d.card.stat2.value;
+        }).catch(function() {});
+    })();
   </script>
 </body>
 </html>
