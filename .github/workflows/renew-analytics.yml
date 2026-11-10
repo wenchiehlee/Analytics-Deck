@@ -5,12 +5,23 @@ on:
     # Runs 4 times a day (every 6 hours at 00:00, 06:00, 12:00, 18:00 UTC)
     # Taipei Time: 08:00, 14:00, 20:00, 02:00
     - cron: "0 */6 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "scripts/**"
+      - ".github/workflows/renew-analytics.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: analytics-pages
+  cancel-in-progress: false
 
 jobs:
   renew-and-deploy:
@@ -47,3 +58,26 @@ jobs:
             git commit -m "chore(telemetry): 4-times-daily GA4 data renewal [skip ci]"
             git push
           fi
+
+  deploy-pages:
+    needs: renew-and-deploy
+    if: always() && (needs.renew-and-deploy.result == 'success' || needs.renew-and-deploy.result == 'skipped')
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
