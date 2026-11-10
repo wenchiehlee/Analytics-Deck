@@ -6,8 +6,8 @@
     "cron_schedule": "0 */6 * * *",
     "last_deck_sync": "2026-11-01 12:00:00",
     "total_endpoints": 13,
-    "last_sync": "2026-11-09 14:55:01 UTC",
-    "last_sync_local": "2026-11-09 14:55 (4 renewals/day)"
+    "last_sync": "2026-11-10 01:04:14 UTC",
+    "last_sync_local": "2026-11-10 01:04 (4 renewals/day)"
   },
   "endpoints": [
     {
@@ -31,7 +31,7 @@
       "desc_html": "<strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。",
       "analytics": {
         "views_total": 2086,
-        "active_users_30d": "96",
+        "active_users_30d": "93",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -47,7 +47,7 @@
           "project_name": "mkdocs-life",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -87,7 +87,7 @@
           "project_name": "GoogleAlertManager",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -110,8 +110,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以深海翻騰水花躍鯨作為播放器封面；<strong>微觀</strong>以聲波噴泉座頭鯨作為聲學控制與音軌切換指示。",
       "analytics": {
-        "views_total": 126,
-        "active_users_30d": "6",
+        "views_total": 127,
+        "active_users_30d": "7",
         "category": "saas",
         "ga4": {
           "enabled": true,
@@ -127,7 +127,7 @@
           "project_name": "YoutubeAudio.Fetch",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -167,7 +167,7 @@
           "project_name": "Docker-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -190,8 +190,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
       "analytics": {
-        "views_total": 17371,
-        "active_users_30d": "4,356",
+        "views_total": 17396,
+        "active_users_30d": "4,339",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -207,7 +207,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -230,8 +230,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
       "analytics": {
-        "views_total": 17371,
-        "active_users_30d": "4,356",
+        "views_total": 17396,
+        "active_users_30d": "4,339",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -247,7 +247,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -287,7 +287,7 @@
           "project_name": "HomeAssistant",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -327,7 +327,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -367,7 +367,7 @@
           "project_name": "My-TW-Coverage",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -407,7 +407,7 @@
           "project_name": "InvestorConference",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -447,7 +447,7 @@
           "project_name": "VIX",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -487,7 +487,7 @@
           "project_name": "Synology-Photo-Tagger",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     },
     {
@@ -527,7 +527,7 @@
           "project_name": "Skill-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-09 14:55:01 UTC"
+        "last_sync": "2026-11-10 01:04:14 UTC"
       }
     }
   ]
