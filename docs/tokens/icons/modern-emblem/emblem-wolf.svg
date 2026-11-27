@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wol-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="wol-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Shield / Crest -->
+  <polygon points="60,14 96,30 96,70 60,88 24,70 24,30" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <!-- Prismatic Geometric Wolf Head -->
+  <!-- Left & Right Pointed Ears -->
+  <polygon points="34,42 36,20 52,34" fill="url(#wol-dark)"/>
+  <polygon points="86,42 84,20 68,34" fill="url(#wol-dark)"/>
+  <!-- Central Brow & Cheek Facets -->
+  <polygon points="60,34 50,46 60,54 70,46" fill="url(#wol-grad1)"/>
+  <polygon points="36,46 50,46 44,64 32,56" fill="url(#wol-dark)"/>
+  <polygon points="84,46 70,46 76,64 88,56" fill="url(#wol-dark)"/>
+  <!-- Predatory Ice-Gold Eyes -->
+  <polygon points="46,47 52,49 48,53" fill="#fde047"/>
+  <polygon points="74,47 68,49 72,53" fill="#fde047"/>
+  <!-- Muzzle, Nose Tip & Fang Angle -->
+  <polygon points="60,54 52,66 60,78 68,66" fill="url(#wol-grad1)"/>
+  <polygon points="57,74 63,74 60,78" fill="#0f172a"/>
+  <!-- Typography -->
+  <text x="60" y="103" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="10.5" fill="#0f172a" letter-spacing="2.8">WOLF</text>
+  <text x="60" y="112" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="4.2" fill="#2563eb" letter-spacing="1.2">― APEX SENTINEL ―</text>
+</svg>

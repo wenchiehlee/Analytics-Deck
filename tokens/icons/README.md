@@ -41,25 +41,26 @@ tokens/icons/
 │   ├── lucide-rhino.svg           # (已使用/候選: VIX 灰犀牛)
 │   ├── lucide-eagle.svg           # (已使用/候選: InvestorConference 領航雄鷹)
 │   ├── lucide-turtle.svg          # (候選: 防禦玄龜)
-│   ├── lucide-squirrel.svg        # (候選: 數據松鼠)
 │   ├── lucide-dolphin.svg         # (候選: 靈活海豚)
 │   ├── lucide-lion.svg            # (候選: 王者雄獅)
 │   ├── lucide-elephant.svg        # (候選: 穩健巨象)
 │   ├── lucide-camel.svg           # (候選: 耐力駱駝)
-│   └── lucide-bear.svg            # (候選: 防禦巨熊)
+│   ├── lucide-giraffe.svg         # (候選: 高瞻長頸鹿)
+│   ├── lucide-tiger.svg           # (候選: 突破猛虎)
+│   ├── lucide-monkey.svg          # (候選: 靈巧小猴)
+│   ├── lucide-zebra.svg           # (候選: 幾何斑馬)
+│   ├── lucide-hippo.svg           # (候選: 沉靜河馬)
+│   ├── lucide-cheetah.svg         # (候選: 疾速獵豹)
+│   ├── lucide-wolf.svg            # (候選: 孤峰霜狼)
+│   ├── lucide-shark.svg           # (候選: 深海獵鯊)
+│   ├── lucide-fox.svg             # (候選: 靈巧赤狐)
+│   ├── lucide-penguin.svg         # (候選: 極地企鵝)
+│   ├── lucide-gorilla.svg         # (候選: 金剛巨猩)
+│   └── lucide-panda.svg           # (候選: 守護熊貓)
 │
-├── modern-emblem/                 # 3034.eps 與端點專用現代商標徽章 SVG (無太陽版雄鷹)
-│   ├── emblem-swan.svg
-│   ├── emblem-docker-whale.svg   # Docker-Deck 貨櫃藍鯨
-│   ├── emblem-rhino.svg
-│   ├── emblem-eagle.svg           # (已剔除背景太陽日輪)
-│   ├── emblem-eagle-pure.svg      # (純雄鷹主體向量，無字無太陽)
-│   ├── emblem-dog.svg
-│   ├── emblem-dolphin.svg
-│   ├── emblem-lion.svg
-│   ├── emblem-elephant.svg
-│   ├── emblem-camel.svg
-│   └── emblem-bear.svg
+├── modern-emblem/                 # 現代商標徽章 SVG (現役 13 款 + 備選 18 款全備齊)
+│   ├── emblem-*.svg               # 包含 deer, falcon, whale, bull, bear, dog, cat, owl, eagle, swan, squirrel, rabbit, docker-whale
+│   └── 備選儲備 18 款：dolphin, lion, elephant, camel, rhino, turtle, giraffe, tiger, monkey, zebra, hippo, cheetah, wolf, shark, fox, penguin, gorilla, panda
 │
 └── kawaii-chibi/                  # 8 款日系 Q 版萌系透明圖標 (SVG/PNG)
     ├── chibi-lion.svg / .png

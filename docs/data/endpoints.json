@@ -5,7 +5,7 @@
     "sync_frequency": "4 renewals per day (every 6 hours)",
     "cron_schedule": "0 */6 * * *",
     "last_deck_sync": "2026-11-01 12:00:00",
-    "total_endpoints": 13,
+    "total_endpoints": 20,
     "last_sync": "2026-11-27 02:30:06 UTC",
     "last_sync_local": "2026-11-27 02:30 (4 renewals/day)"
   },
@@ -525,6 +525,286 @@
           "enabled": false,
           "status": "planned",
           "project_name": "Skill-Deck",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-27 02:30:06 UTC"
+      }
+    },
+    {
+      "id": "lion",
+      "order": 14,
+      "name": "投資金獅 🦁",
+      "project": "wenchiehlee-investment.github.io (投資機構入口)",
+      "card_class": "card-lion",
+      "lucide_wrapper_class": "wrapper-lion",
+      "showcase_url": "./showcases.html",
+      "repo_url": "https://github.com/wenchiehlee-investment/wenchiehlee-investment.github.io",
+      "pages_url": "https://wenchiehlee-investment.github.io/",
+      "live_url": "",
+      "separate_live": true,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-lion.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-lion.svg",
+      "emblem_alt": "投資機構金獅紋章",
+      "lucide_href": "./tokens/icons/lucide/lucide-lion.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "以金獅象徵投資機構的穩健治理與長期守護，作為組織官方入口識別。",
+      "analytics": {
+        "views_total": null,
+        "active_users_30d": null,
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/lion/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee-investment.github.io",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-01 03:49:33 UTC"
+      }
+    },
+    {
+      "id": "turtle",
+      "order": 15,
+      "name": "人文靈龜 🐢",
+      "project": "wenchiehlee-life.github.io (生活組織入口)",
+      "card_class": "card-turtle",
+      "lucide_wrapper_class": "wrapper-turtle",
+      "showcase_url": "./showcases.html",
+      "repo_url": "https://github.com/wenchiehlee-life/wenchiehlee-life.github.io",
+      "pages_url": "https://wenchiehlee-life.github.io/",
+      "live_url": "",
+      "separate_live": true,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-turtle.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-turtle.svg",
+      "emblem_alt": "人文生活靈龜紋章",
+      "lucide_href": "./tokens/icons/lucide/lucide-turtle.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "以靈龜象徵耐心、平衡與長久，作為人文生活組織的官方入口識別。",
+      "analytics": {
+        "views_total": null,
+        "active_users_30d": null,
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/turtle/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee-life.github.io",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-01 03:49:33 UTC"
+      }
+    },
+    {
+      "id": "elephant",
+      "order": 16,
+      "name": "工程知識象 🐘",
+      "project": "mkdocs (工程技術文件中心)",
+      "card_class": "card-elephant",
+      "lucide_wrapper_class": "wrapper-elephant",
+      "showcase_url": "./showcases.html",
+      "repo_url": "https://github.com/wenchiehlee/mkdocs",
+      "pages_url": "https://wenchiehlee.github.io/mkdocs/",
+      "live_url": "",
+      "separate_live": true,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-elephant.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-elephant.svg",
+      "emblem_alt": "工程知識象紋章",
+      "lucide_href": "./tokens/icons/lucide/lucide-elephant.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "以知識象代表記憶、脈絡與工程文件的可靠累積，作為技術知識基底識別。",
+      "analytics": {
+        "views_total": null,
+        "active_users_30d": null,
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/elephant/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "mkdocs",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-01 03:49:33 UTC"
+      }
+    },
+    {
+      "id": "cat",
+      "order": 17,
+      "name": "個人品牌貓 🐈",
+      "project": "wenchiehlee.github.io (個人官方主站)",
+      "card_class": "card-cat",
+      "lucide_wrapper_class": "wrapper-cat",
+      "showcase_url": "./showcases.html",
+      "repo_url": "https://github.com/wenchiehlee/wenchiehlee.github.io",
+      "pages_url": "https://wenchiehlee.github.io/",
+      "live_url": "",
+      "separate_live": true,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-cat.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-cat.svg",
+      "emblem_alt": "個人品牌貓紋章",
+      "lucide_href": "./tokens/icons/lucide/lucide-cat.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "以靈巧親和的品牌貓串連個人作品、專案與公開資訊，作為個人官方入口識別。",
+      "analytics": {
+        "views_total": null,
+        "active_users_30d": null,
+        "category": "docs",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/cat/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee.github.io",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-01 03:49:33 UTC"
+      }
+    },
+    {
+      "id": "synology-nas",
+      "order": 18,
+      "name": "耐力駱駝 (Endurance Camel) 🐪",
+      "project": "ZhongZheng782/Mail-Deck · Synology Web Station",
+      "card_class": "",
+      "lucide_wrapper_class": "wrapper-camel",
+      "showcase_url": "./showcases.html#synology-nas",
+      "repo_url": "https://github.com/ZhongZheng782/Mail-Deck",
+      "pages_url": "",
+      "live_url": "",
+      "separate_live": false,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-camel.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-camel.svg",
+      "emblem_alt": "耐力駱駝 (Endurance Camel) Modern Emblem",
+      "lucide_href": "./tokens/icons/lucide/lucide-camel.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>沿用圖鑑「耐力駱駝」紋章與赭金色系；<strong>微觀</strong>以駱駝剪影呈現長時運行與穩定郵件傳遞，部署於 <code>/web/mail-deck/</code>。",
+      "analytics": {
+        "views_total": 821,
+        "active_users_30d": "1",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/synology/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee.quickconnect.to",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-27 02:30:06 UTC"
+      }
+    },
+    {
+      "id": "synology-nas",
+      "order": 19,
+      "name": "影像探索兔 🐇",
+      "project": "ZhongZheng782/Photo-Deck · Synology Web Station",
+      "card_class": "card-rabbit",
+      "lucide_wrapper_class": "wrapper-rabbit",
+      "showcase_url": "./showcases.html#synology-nas",
+      "repo_url": "https://github.com/ZhongZheng782/Photo-Deck",
+      "pages_url": "",
+      "live_url": "",
+      "separate_live": false,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-rabbit.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-rabbit.svg",
+      "emblem_alt": "影像探索兔 Modern Emblem",
+      "lucide_href": "./tokens/icons/lucide/lucide-rabbit.svg",
+      "symbol_id": "",
+      "inline_svg_html": "<svg aria-hidden=\"true\" class=\"ux-icon ux-icon-xl ux-icon-rabbit\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M13 16a3 3 0 0 1 2.24 5\"></path><path d=\"M18 12h.01\"></path><path d=\"M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3\"></path><path d=\"M20 8.54V4a2 2 0 1 0-4 0v3\"></path><path d=\"M7.612 12.524a3 3 0 1 0-1.6 4.3\"></path></svg>",
+      "desc_html": "<strong>宏觀</strong>沿用圖鑑的敏捷白兔紋章與清新綠色系；<strong>微觀</strong>以兔形線性圖標代表快速瀏覽與整理，部署於 <code>/web/photo-deck/</code>。",
+      "analytics": {
+        "views_total": 821,
+        "active_users_30d": "1",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/synology/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee.quickconnect.to",
+          "dashboard_url": ""
+        },
+        "last_sync": "2026-11-27 02:30:06 UTC"
+      }
+    },
+    {
+      "id": "synology-nas",
+      "order": 20,
+      "name": "重甲灰犀牛 (Grey Rhino) 🦏",
+      "project": "ZhongZheng782/wenchiehlee.quickconnect.to · Synology Web Station",
+      "card_class": "",
+      "lucide_wrapper_class": "",
+      "showcase_url": "./showcases.html#synology-nas",
+      "repo_url": "https://github.com/ZhongZheng782/wenchiehlee.quickconnect.to",
+      "pages_url": "",
+      "live_url": "",
+      "separate_live": false,
+      "emblem_href": "./tokens/icons/modern-emblem/emblem-rhino.svg",
+      "emblem_src": "./tokens/icons/modern-emblem/emblem-rhino.svg",
+      "emblem_alt": "重甲灰犀牛 (Grey Rhino) Modern Emblem",
+      "lucide_href": "./tokens/icons/lucide/lucide-rhino.svg",
+      "symbol_id": "",
+      "inline_svg_html": "",
+      "desc_html": "<strong>宏觀</strong>沿用圖鑑的「重甲灰犀牛」紋章與石板灰色系；<strong>微觀</strong>以犀牛剪影象徵私有雲門戶的防護與穩定連線，部署於 <code>/web/</code>。",
+      "analytics": {
+        "views_total": 821,
+        "active_users_30d": "1",
+        "category": "infra",
+        "ga4": {
+          "enabled": true,
+          "measurement_id": "G-913Z6DSVD2",
+          "property_id": "463673189",
+          "account_id": "333479515",
+          "dashboard_url": "https://analytics.google.com/analytics/web/#/a333479515p463673189/reports/intelligenthome?params=_u..nav%3Dmaui%26_u..realtimeTimePeriod%3D5&collectionId=user",
+          "filter_path": "/synology/"
+        },
+        "amplitude": {
+          "enabled": false,
+          "status": "planned",
+          "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
         "last_sync": "2026-11-27 02:30:06 UTC"

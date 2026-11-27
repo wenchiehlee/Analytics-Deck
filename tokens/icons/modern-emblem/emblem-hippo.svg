@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hip-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="hip-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Disc -->
+  <circle cx="60" cy="50" r="38" fill="#f0f9ff"/>
+  <!-- Little Alert Ears -->
+  <circle cx="42" cy="28" r="6" fill="url(#hip-dark)"/>
+  <circle cx="78" cy="28" r="6" fill="url(#hip-dark)"/>
+  <!-- Massive Broad Head & Snout Contour -->
+  <path d="M 38 48 C 38 32 82 32 82 48 C 82 54 86 58 86 66 C 86 78 74 82 60 82 C 46 82 34 78 34 66 C 34 58 38 54 38 48 Z" fill="url(#hip-grad1)"/>
+  <!-- Waterline Ripples Beneath -->
+  <path d="M 28 76 Q 44 72 60 76 T 92 76" stroke="#bae6fd" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Alert Round Eyes on Top -->
+  <ellipse cx="49" cy="42" rx="3.5" ry="4.5" fill="#ffffff"/>
+  <circle cx="50" cy="42" r="2" fill="#082f49"/>
+  <ellipse cx="71" cy="42" rx="3.5" ry="4.5" fill="#ffffff"/>
+  <circle cx="70" cy="42" r="2" fill="#082f49"/>
+  <!-- Broad Muzzle Plate & Prominent Twin Nostrils -->
+  <path d="M 40 56 C 40 52 80 52 80 56 C 80 68 72 74 60 74 C 48 74 40 68 40 56 Z" fill="url(#hip-dark)"/>
+  <ellipse cx="50" cy="62" rx="3" ry="4" fill="#082f49"/>
+  <ellipse cx="70" cy="62" rx="3" ry="4" fill="#082f49"/>
+  <!-- Typography -->
+  <text x="60" y="103" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="10.5" fill="#0f172a" letter-spacing="2.8">HIPPO</text>
+  <text x="60" y="112" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="4.2" fill="#0284c7" letter-spacing="1.2">― STEADFAST CAPACITY ―</text>
+</svg>

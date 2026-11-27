@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Dynamic Slicing Shark Body & Pointed Snout -->
+  <path d="M2 13c3-1 6-4 11-4 4 0 7 2 9 4-3 1-6 3-10 3-4 0-7-1.5-10-3Z" />
+  <!-- Iconic Sharp Dorsal Fin -->
+  <path d="M10 9L12 3c1.5 2 2.5 4.5 3 6" />
+  <!-- Pectoral Fin -->
+  <path d="M8 14l-2 5c2-.5 4-1.5 5-3" />
+  <!-- Crescent Caudal Tail -->
+  <path d="M21 13l2-4c-.5 2-.5 6 0 8l-2-4Z" />
+  <!-- Gill Slits & Eye -->
+  <circle cx="6" cy="12" r=".5" fill="currentColor" />
+  <path d="M9 11.5v2" />
+  <path d="M10.5 12v1.5" />
+</svg>

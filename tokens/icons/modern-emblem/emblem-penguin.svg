@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pen-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="pen-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Disc -->
+  <circle cx="60" cy="50" r="38" fill="#f0fdfa"/>
+  <!-- Solid Tuxedo Body -->
+  <path d="M 60 22 C 48 22 40 34 40 54 C 40 70 48 80 60 80 C 72 80 80 70 80 54 C 80 34 72 22 60 22 Z" fill="url(#pen-dark)"/>
+  <!-- Flipper Wings -->
+  <path d="M 40 46 C 34 52 32 64 38 70 C 40 64 41 54 42 48 Z" fill="url(#pen-grad1)"/>
+  <path d="M 80 46 C 86 52 88 64 82 70 C 80 64 79 54 78 48 Z" fill="url(#pen-grad1)"/>
+  <!-- Crisp White Belly -->
+  <ellipse cx="60" cy="56" rx="12" ry="18" fill="#ffffff"/>
+  <!-- Amber Beak & Eyes -->
+  <circle cx="54" cy="34" r="1.6" fill="#ffffff"/>
+  <circle cx="54" cy="34" r=".9" fill="#0f172a"/>
+  <circle cx="66" cy="34" r="1.6" fill="#ffffff"/>
+  <circle cx="66" cy="34" r=".9" fill="#0f172a"/>
+  <polygon points="56,38 64,38 60,45" fill="#f59e0b"/>
+  <!-- Cute Feet -->
+  <ellipse cx="52" cy="80" rx="5" ry="2.5" fill="#f59e0b"/>
+  <ellipse cx="68" cy="80" rx="5" ry="2.5" fill="#f59e0b"/>
+  <!-- Typography -->
+  <text x="60" y="103" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="9.5" fill="#0f172a" letter-spacing="2.5">PENGUIN</text>
+  <text x="60" y="112" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="4.2" fill="#0f766e" letter-spacing="1.2">― RESILIENT ENDURANCE ―</text>
+</svg>
