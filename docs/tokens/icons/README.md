@@ -58,9 +58,9 @@ tokens/icons/
 │   ├── lucide-gorilla.svg         # (候選: 金剛巨猩)
 │   └── lucide-panda.svg           # (候選: 守護熊貓)
 │
-├── modern-emblem/                 # 現代商標徽章 SVG (現役 13 款 + 備選 18 款全備齊)
+├── modern-emblem/                 # 現代商標徽章 SVG (現役 20 款 + 備選 12 款全備齊)
 │   ├── emblem-*.svg               # 包含 deer, falcon, whale, bull, bear, dog, cat, owl, eagle, swan, squirrel, rabbit, docker-whale
-│   └── 備選儲備 18 款：dolphin, lion, elephant, camel, rhino, turtle, giraffe, tiger, monkey, zebra, hippo, cheetah, wolf, shark, fox, penguin, gorilla, panda
+│   └── 備選儲備 12 款：dolphin, giraffe, monkey, zebra, hippo, cheetah, wolf, shark, fox, penguin, gorilla, panda
 │
 └── kawaii-chibi/                  # 8 款日系 Q 版萌系透明圖標 (SVG/PNG)
     ├── chibi-lion.svg / .png
