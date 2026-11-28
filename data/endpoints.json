@@ -6,8 +6,8 @@
     "cron_schedule": "0 */6 * * *",
     "last_deck_sync": "2026-11-01 12:00:00",
     "total_endpoints": 20,
-    "last_sync": "2026-11-28 01:12:26 UTC",
-    "last_sync_local": "2026-11-28 01:12 (4 renewals/day)"
+    "last_sync": "2026-11-28 15:10:07 UTC",
+    "last_sync_local": "2026-11-28 15:10 (4 renewals/day)"
   },
   "endpoints": [
     {
@@ -31,7 +31,7 @@
       "desc_html": "<strong>宏觀</strong>以王者雄鹿立姿作為官方紋章門面；<strong>微觀</strong>以 24px 極簡對稱鹿角作為高密度導航與狀態線性圖標。",
       "analytics": {
         "views_total": 2144,
-        "active_users_30d": "100",
+        "active_users_30d": "101",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -47,7 +47,7 @@
           "project_name": "mkdocs-life",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -87,7 +87,7 @@
           "project_name": "GoogleAlertManager",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -127,7 +127,7 @@
           "project_name": "YoutubeAudio.Fetch",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -150,7 +150,7 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以 Docker 藍鯨承載貨櫃作為品牌紋章；<strong>微觀</strong>以貨櫃藍鯨線性圖標連結映像探索與容器啟動。",
       "analytics": {
-        "views_total": 26,
+        "views_total": 29,
         "active_users_30d": "1",
         "category": "infra",
         "ga4": {
@@ -167,7 +167,7 @@
           "project_name": "Docker-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -190,8 +190,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以沖天雙角赤陶狂牛盾牌作為多頭主頁門面；<strong>微觀</strong>以幾何牛角線條作為多頭突破與持股評等符號。",
       "analytics": {
-        "views_total": 20566,
-        "active_users_30d": "4,418",
+        "views_total": 20614,
+        "active_users_30d": "4,471",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -207,7 +207,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -230,8 +230,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以冬眠防禦步態巨熊作為下檔風險護盾；<strong>微觀</strong>以圓耳線性熊頭標示空頭對沖與保守配置。",
       "analytics": {
-        "views_total": 20566,
-        "active_users_30d": "4,418",
+        "views_total": 20614,
+        "active_users_30d": "4,471",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -247,7 +247,7 @@
           "project_name": "mkdocs-investment",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -287,7 +287,7 @@
           "project_name": "HomeAssistant",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -327,7 +327,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -367,7 +367,7 @@
           "project_name": "My-TW-Coverage",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -407,7 +407,7 @@
           "project_name": "InvestorConference",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -430,8 +430,8 @@
       "inline_svg_html": "",
       "desc_html": "<strong>宏觀</strong>以幾何黑天鵝極端風險徽章作為雷達封面；<strong>微觀</strong>以高對比曜石天鵝作為市場恐慌 30 閾值與壓力測試標記。",
       "analytics": {
-        "views_total": 4,
-        "active_users_30d": "3",
+        "views_total": 5,
+        "active_users_30d": "4",
         "category": "fintech",
         "ga4": {
           "enabled": true,
@@ -447,7 +447,7 @@
           "project_name": "VIX",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -487,7 +487,7 @@
           "project_name": "Synology-Photo-Tagger",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -527,7 +527,7 @@
           "project_name": "Skill-Deck",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -567,7 +567,7 @@
           "project_name": "wenchiehlee-investment.github.io",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -607,7 +607,7 @@
           "project_name": "wenchiehlee-life.github.io",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -647,7 +647,7 @@
           "project_name": "mkdocs",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -670,8 +670,8 @@
       "inline_svg_html": "",
       "desc_html": "以靈巧親和的品牌貓串連個人作品、專案與公開資訊，作為個人官方入口識別。",
       "analytics": {
-        "views_total": 446,
-        "active_users_30d": "43",
+        "views_total": 448,
+        "active_users_30d": "45",
         "category": "docs",
         "ga4": {
           "enabled": true,
@@ -687,7 +687,7 @@
           "project_name": "wenchiehlee.github.io",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -727,7 +727,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -767,7 +767,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     },
     {
@@ -807,7 +807,7 @@
           "project_name": "wenchiehlee.quickconnect.to",
           "dashboard_url": ""
         },
-        "last_sync": "2026-11-28 01:12:26 UTC"
+        "last_sync": "2026-11-28 15:10:07 UTC"
       }
     }
   ]
